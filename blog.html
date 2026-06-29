@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Stackly Architecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/image.png" alt="Stackly Architecture" height="40">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="signin.html" class="btn btn-outline-light rounded-pill px-4">Sign In</a>
+                    <a href="signup.html" class="btn btn-accent rounded-pill px-4">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero-section">
+        <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop');"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content text-center text-white">
+            <span class="section-tag" style="background:rgba(196, 122, 86,0.2);color:#c47a56;">Latest Updates</span>
+            <h1 class="display-4 fw-bold" style="font-family:'Playfair Display',serif;">From Our Blog</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width:600px;">Insights, trends, and stories from the world of architecture and design.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">Jun 15, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Sustainable Design</span>
+                            <h5>The Future of Green Architecture</h5>
+                            <p class="text-muted small">Exploring how sustainable materials and energy-efficient design are shaping the future of modern architecture.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">May 28, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Interior Design</span>
+                            <h5>Biophilic Design: Bringing Nature Indoors</h5>
+                            <p class="text-muted small">How incorporating natural elements into interior spaces improves wellbeing and productivity.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">Apr 10, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Urban Planning</span>
+                            <h5>Smart Cities of Tomorrow</h5>
+                            <p class="text-muted small">An inside look at how technology and thoughtful design are creating more livable urban environments.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">Mar 5, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Architecture</span>
+                            <h5>Minimalism in Modern Architecture</h5>
+                            <p class="text-muted small">The enduring appeal of minimalist design and how less truly becomes more in contemporary spaces.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">Feb 18, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Landscape</span>
+                            <h5>Designing Urban Green Spaces</h5>
+                            <p class="text-muted small">The vital role of parks and green corridors in creating healthy, sustainable cities.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">Jan 22, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Commercial</span>
+                            <h5>Workplace Design Post-Pandemic</h5>
+                            <p class="text-muted small">How office architecture is evolving to embrace hybrid work models and employee wellbeing.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-dark rounded-pill px-5" onclick="location.href='404.html'">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="newsletter-box text-center" style="max-width:600px;margin:0 auto;">
+                <span class="section-tag">Stay Updated</span>
+                <h2 class="section-title">Subscribe to Our Newsletter</h2>
+                <p class="text-muted">Get the latest architecture insights, project updates, and design trends delivered to your inbox.</p>
+                <div class="input-group mt-4">
+                    <input type="email" class="form-control form-control-lg" placeholder="Enter your email">
+                    <button class="btn btn-accent btn-lg px-4" type="button" onclick="location.href='404.html'">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Categories</span>
+                <h2 class="section-title">Browse by Topic</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Explore articles across different categories of architecture and design.</p>
+            </div>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <span class="filter-btn active">All</span>
+                <span class="filter-btn">Sustainable Design</span>
+                <span class="filter-btn">Interior Design</span>
+                <span class="filter-btn">Urban Planning</span>
+                <span class="filter-btn">Architecture</span>
+                <span class="filter-btn">Landscape</span>
+                <span class="filter-btn">Commercial</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Popular</span>
+                <h2 class="section-title">Most Read Articles</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Our most popular content that our readers love.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="d-flex gap-3 bg-white p-3 rounded-4 shadow-sm border">
+                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=150&auto=format&fit=crop" class="rounded-3" width="100" height="100" style="object-fit:cover;" alt="">
+                        <div>
+                            <span class="badge bg-accent-subtle text-accent mb-1">Sustainable Design</span>
+                            <h6 class="fw-bold">The Future of Green Architecture</h6>
+                            <p class="text-muted small mb-2">Jun 15, 2026 · 5 min read</p>
+                            <a href="404.html" class="blog-link small">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex gap-3 bg-white p-3 rounded-4 shadow-sm border">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=150&auto=format&fit=crop" class="rounded-3" width="100" height="100" style="object-fit:cover;" alt="">
+                        <div>
+                            <span class="badge bg-accent-subtle text-accent mb-1">Interior Design</span>
+                            <h6 class="fw-bold">Biophilic Design: Bringing Nature Indoors</h6>
+                            <p class="text-muted small mb-2">May 28, 2026 · 4 min read</p>
+                            <a href="404.html" class="blog-link small">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex gap-3 bg-white p-3 rounded-4 shadow-sm border">
+                        <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=150&auto=format&fit=crop" class="rounded-3" width="100" height="100" style="object-fit:cover;" alt="">
+                        <div>
+                            <span class="badge bg-accent-subtle text-accent mb-1">Urban Planning</span>
+                            <h6 class="fw-bold">Smart Cities of Tomorrow</h6>
+                            <p class="text-muted small mb-2">Apr 10, 2026 · 6 min read</p>
+                            <a href="404.html" class="blog-link small">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex gap-3 bg-white p-3 rounded-4 shadow-sm border">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=150&auto=format&fit=crop" class="rounded-3" width="100" height="100" style="object-fit:cover;" alt="">
+                        <div>
+                            <span class="badge bg-accent-subtle text-accent mb-1">Architecture</span>
+                            <h6 class="fw-bold">Minimalism in Modern Architecture</h6>
+                            <p class="text-muted small mb-2">Mar 5, 2026 · 3 min read</p>
+                            <a href="404.html" class="blog-link small">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Tags</span>
+                <h2 class="section-title">Explore by Tags</h2>
+            </div>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Architecture</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Sustainability</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Interior Design</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Urban Planning</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Green Building</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Smart Cities</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Minimalism</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Landscape</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Commercial</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Residential</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Biophilic</a>
+                <a href="404.html" class="btn btn-outline-dark rounded-pill btn-sm px-3">Workplace</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3"><img src="images/image.png" alt="Stackly Architecture" height="30"></h5>
+                    <p class="text-white-50 small">Designing exceptional spaces that inspire, innovate, and endure.</p>
+                    <div class="social-links mt-3">
+                        <a href="404.html"><i class="bi bi-instagram"></i></a>
+                        <a href="404.html"><i class="bi bi-facebook"></i></a>
+                        <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                        <a href="404.html"><i class="bi bi-pinterest"></i></a>
+                        <a href="404.html"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none small">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none small">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Services</a></li>
+                        <li class="mb-2"><a href="projects.html" class="text-white-50 text-decoration-none small">Projects</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none small">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Residential</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Commercial</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Interior Design</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Landscape</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Urban Planning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 small">Subscribe for the latest in architecture and design.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-accent" type="button" onclick="location.href='404.html'"><i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-white-10 my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white-50 small mb-0">&copy; 2026 Stackly Architecture. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="404.html" class="text-white-50 text-decoration-none small me-3">Privacy Policy</a>
+                    <a href="404.html" class="text-white-50 text-decoration-none small">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

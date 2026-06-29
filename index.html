@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Architecture | Design & Build</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/image.png" alt="Stackly Architecture" height="40">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-lg-3">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="signin.html" class="btn btn-outline-light rounded-pill px-4">Sign In</a>
+                    <a href="signup.html" class="btn btn-accent rounded-pill px-4">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop');"></div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center text-white">
+            <p class="hero-subtitle mb-3"><span id="typewriter-text">Architecture & Interior Design</span><span class="typewriter-cursor"></span></p>
+            <h1 class="hero-title">Designing Dreams,<br><span class="text-accent">Building Realities</span></h1>
+            <p class="hero-desc mx-auto mb-4">We craft exceptional spaces that inspire, innovate, and endure. From concept to completion, we bring visionary architecture to life.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="projects.html" class="btn btn-accent btn-lg rounded-pill px-5">View Our Work</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg rounded-pill px-5">Contact Us</a>
+            </div>
+        </div>
+        <div class="hero-slider-controls">
+            <span class="slider-dot active" data-index="0"></span>
+            <span class="slider-dot" data-index="1"></span>
+            <span class="slider-dot" data-index="2"></span>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding overflow-hidden">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <span class="section-tag">About Us</span>
+                    <h2 class="section-title">We Shape Spaces That Shape Lives</h2>
+                    <p class="text-muted">Founded in 2010, Stackly Architecture is a collective of visionary architects, designers, and planners dedicated to creating meaningful built environments. With over 500+ projects across residential, commercial, and public sectors, we blend innovation with timeless design.</p>
+                    <p class="text-muted">Our philosophy is rooted in the belief that great architecture emerges from deep listening, creative exploration, and technical excellence. Every project tells a unique story.</p>
+                    <div class="row g-4 mt-4">
+                        <div class="col-4 text-center">
+                            <h3 class="counter text-accent fw-bold mb-0 fs-1" data-target="15">0</h3>
+                            <p class="text-muted small mb-0">Years</p>
+                        </div>
+                        <div class="col-4 text-center">
+                            <h3 class="counter text-accent fw-bold mb-0 fs-1" data-target="500">0</h3>
+                            <p class="text-muted small mb-0">Projects</p>
+                        </div>
+                        <div class="col-4 text-center">
+                            <h3 class="counter text-accent fw-bold mb-0 fs-1" data-target="120" data-suffix="+">0</h3>
+                            <p class="text-muted small mb-0">Awards</p>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn btn-accent rounded-pill px-4 mt-4">Learn More <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Architecture" class="img-fluid rounded-4 shadow">
+                        <div class="about-exp-box">
+                            <h3 class="text-white fw-bold mb-0">15+</h3>
+                            <p class="text-white-50 mb-0">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider section-divider-top">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,0 C360,80 720,0 1080,80 L1440,0 L1440,0 L0,0 Z" fill="var(--section-bg)" opacity="0.5"></path>
+        </svg>
+    </div>
+
+    <section class="process-section section-padding overflow-hidden">
+        <div class="floating-shape floating-shape-3"></div>
+        <div class="container position-relative" style="z-index:1;">
+            <div class="text-center mb-5">
+                <span class="section-tag">How We Work</span>
+                <h2 class="section-title text-white">Our Design Process</h2>
+                <p class="text-white-50 mx-auto" style="max-width:600px;">A proven methodology that ensures every project is delivered with precision, creativity, and excellence.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="process-step reveal reveal-up stagger-1">
+                        <span class="step-number">01</span>
+                        <h5>Consultation</h5>
+                        <p>Understanding your vision, needs, and budget.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="process-step reveal reveal-up stagger-2">
+                        <span class="step-number">02</span>
+                        <h5>Design</h5>
+                        <p>Concept develops into detailed architectural plans.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="process-step reveal reveal-up stagger-3">
+                        <span class="step-number">03</span>
+                        <h5>Approval</h5>
+                        <p>Permits and regulatory compliance handled seamlessly.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="process-step reveal reveal-up stagger-4">
+                        <span class="step-number">04</span>
+                        <h5>Construction</h5>
+                        <p>Expert supervision ensures quality and timelines.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="process-step reveal reveal-up stagger-5">
+                        <span class="step-number">05</span>
+                        <h5>Handover</h5>
+                        <p>Your dream space delivered with a smile.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="process-step reveal reveal-up stagger-6">
+                        <span class="step-number">06</span>
+                        <h5>Support</h5>
+                        <p>Ongoing care and maintenance guidance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="process-connector"></div>
+        </div>
+    </section>
+
+    <section class="stats-ribbon">
+        <div class="container">
+            <div class="text-center mb-5 position-relative" style="z-index:1;">
+                <span class="section-tag" style="background:rgba(255,255,255,0.15);color:#fff;">By The Numbers</span>
+                <h2 class="section-title text-white">Building Excellence For <span style="color:#fff;text-shadow:0 0 20px rgba(255,255,255,0.3);">15 Years</span></h2>
+                <p class="text-white-50 mx-auto" style="max-width:600px;">Every number tells a story of dedication, innovation, and trust built with our clients.</p>
+            </div>
+            <div class="row g-4 position-relative" style="z-index:1;">
+                <div class="col-6 col-md-3 mx-auto">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <p class="stat-label">Years of Excellence</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mx-auto">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500">0</div>
+                        <p class="stat-label">Projects Delivered</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mx-auto">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="120" data-suffix="+">0</div>
+                        <p class="stat-label">Awards Won</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mx-auto">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="98" data-suffix="%">0</div>
+                        <p class="stat-label">Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,80 C360,0 720,80 1080,0 L1440,80 L1440,0 L0,0 Z" fill="var(--section-bg)"></path>
+        </svg>
+    </div>
+
+    <section id="services" class="section-padding bg-light overflow-hidden">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">Our Services</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">From concept design to construction supervision, we offer end-to-end architectural services tailored to your vision.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="residential">
+                        <div class="service-icon"><i class="bi bi-house-heart"></i></div>
+                        <h4>Residential Design</h4>
+                        <p class="text-muted">Custom homes, villas, and apartments designed around your lifestyle.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="commercial">
+                        <div class="service-icon"><i class="bi bi-building"></i></div>
+                        <h4>Commercial Architecture</h4>
+                        <p class="text-muted">Offices, retail spaces, and mixed-use developments that drive business.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="interior">
+                        <div class="service-icon"><i class="bi bi-lamp"></i></div>
+                        <h4>Interior Design</h4>
+                        <p class="text-muted">Beautiful, functional interiors that reflect your personality and purpose.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="landscape">
+                        <div class="service-icon"><i class="bi bi-flower1"></i></div>
+                        <h4>Landscape Architecture</h4>
+                        <p class="text-muted">Outdoor spaces that blend beauty with sustainability.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="urban">
+                        <div class="service-icon"><i class="bi bi-map"></i></div>
+                        <h4>Urban Planning</h4>
+                        <p class="text-muted">Master planning and urban design for communities that thrive.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="consulting">
+                        <div class="service-icon"><i class="bi bi-clipboard-check"></i></div>
+                        <h4>Consulting & Supervision</h4>
+                        <p class="text-muted">Expert guidance from feasibility studies to construction oversight.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="services.html" class="btn btn-outline-dark rounded-pill px-5">View All Services <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients-section section-padding overflow-hidden">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Trusted By</span>
+                <h2 class="section-title">Our Valued Partners & Clients</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">We are proud to have collaborated with leading organizations across industries.</p>
+            </div>
+            <div class="row g-4 align-items-center justify-content-center">
+                <div class="col-4 col-md-2">
+                    <div class="client-logo-wrapper">
+                        <div class="client-logo-placeholder">TechVentures</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="client-logo-wrapper">
+                        <div class="client-logo-placeholder">Singh Group</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="client-logo-wrapper">
+                        <div class="client-logo-placeholder">GreenBuild</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="client-logo-wrapper">
+                        <div class="client-logo-placeholder">UrbanCore</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="client-logo-wrapper">
+                        <div class="client-logo-placeholder">DesignHive</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="client-logo-wrapper">
+                        <div class="client-logo-placeholder">EcoSpaces</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding overflow-hidden" style="background:linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag" style="background:rgba(255,255,255,0.1);color:var(--accent);">Recognition</span>
+                <h2 class="section-title text-white">Awards & Accolades</h2>
+                <p class="text-white-50 mx-auto" style="max-width:600px;">Our commitment to design excellence has been recognized globally.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="award-card">
+                        <div class="award-icon"><i class="bi bi-trophy"></i></div>
+                        <h5>Best Architecture Firm 2025</h5>
+                        <p>India Design Awards</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="award-card">
+                        <div class="award-icon"><i class="bi bi-award"></i></div>
+                        <h5>Green Building Award</h5>
+                        <p>Sustainable Design Council</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="award-card">
+                        <div class="award-icon"><i class="bi bi-star"></i></div>
+                        <h5>Innovation in Design</h5>
+                        <p>Architecture Digest</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="award-card">
+                        <div class="award-icon"><i class="bi bi-heart"></i></div>
+                        <h5>Client Choice Award</h5>
+                        <p>Builders Association</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="serviceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 p-lg-5">
+                    <div class="service-modal-icon mb-3">
+                        <i class="bi bi-house-heart fs-1 text-accent"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3" id="modalTitle">Residential Design</h3>
+                    <p class="text-muted" id="modalDesc">We create bespoke residential spaces that balance aesthetics, functionality, and comfort.</p>
+                    <ul class="list-unstyled mt-4" id="modalFeatures">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Custom home design & planning</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Interior space optimization</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Sustainable material selection</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Construction documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="projects" class="section-padding overflow-hidden">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Our Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Explore our curated collection of architectural projects that showcase our expertise and creative vision.</p>
+            </div>
+            <div class="d-flex justify-content-center gap-2 flex-wrap mb-5" id="filterTabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="landscape">Landscape</button>
+            </div>
+            <div class="row g-4" id="projectGrid">
+                <div class="col-lg-4 col-md-6 project-item" data-category="residential">
+                    <div class="project-card" onclick="openLightbox(0)">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Residential</span>
+                            <h4>Modern Villa</h4>
+                            <p>Bangalore, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="commercial">
+                    <div class="project-card" onclick="openLightbox(1)">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Commercial</span>
+                            <h4>Tech Park Tower</h4>
+                            <p>Hyderabad, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="interior">
+                    <div class="project-card" onclick="openLightbox(2)">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Interior</span>
+                            <h4>Luxury Penthouse</h4>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6 project-item" data-category="residential">
+                    <div class="project-card" onclick="openLightbox(3)">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Residential</span>
+                            <h4>Lakefront Estate</h4>
+                            <p>Nainital, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="landscape">
+                    <div class="project-card" onclick="openLightbox(4)">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Landscape</span>
+                            <h4>Botanical Garden</h4>
+                            <p>Pune, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="commercial">
+                    <div class="project-card" onclick="openLightbox(5)">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Commercial</span>
+                            <h4>Mall of Dreams</h4>
+                            <p>Chennai, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="projects.html" class="btn btn-outline-dark rounded-pill px-5">View All Projects <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)"><i class="bi bi-chevron-left"></i></button>
+        <img id="lightboxImg" src="" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)"><i class="bi bi-chevron-right"></i></button>
+        <span class="lightbox-counter" id="lightboxCounter"></span>
+    </div>
+
+    <section id="team" class="section-padding bg-light overflow-hidden">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Our Team</span>
+                <h2 class="section-title">Meet The Architects</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">A passionate team of designers, thinkers, and builders who bring your vision to life.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="">
+                            <div class="team-social">
+                                <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                                <a href="404.html"><i class="bi bi-twitter-x"></i></a>
+                                <a href="404.html"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mt-3 mb-1 fw-bold">Ar. David Chen</h5>
+                        <p class="text-muted small">Founder & Principal Architect</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=387&auto=format&fit=crop" alt="">
+                            <div class="team-social">
+                                <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                                <a href="404.html"><i class="bi bi-twitter-x"></i></a>
+                                <a href="404.html"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mt-3 mb-1 fw-bold">Ar. Sarah Mitchell</h5>
+                        <p class="text-muted small">Head of Design</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=387&auto=format&fit=crop" alt="">
+                            <div class="team-social">
+                                <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                                <a href="404.html"><i class="bi bi-twitter-x"></i></a>
+                                <a href="404.html"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mt-3 mb-1 fw-bold">Ar. James Walker</h5>
+                        <p class="text-muted small">Senior Architect</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=387&auto=format&fit=crop" alt="">
+                            <div class="team-social">
+                                <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                                <a href="404.html"><i class="bi bi-twitter-x"></i></a>
+                                <a href="404.html"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <h5 class="mt-3 mb-1 fw-bold">Ar. Priya Sharma</h5>
+                        <p class="text-muted small">Interior Design Lead</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="team.html" class="btn btn-outline-dark rounded-pill px-5">View Full Team <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding overflow-hidden">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-carousel position-relative mx-auto" style="max-width:800px;">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card text-center">
+                            <i class="bi bi-quote fs-1 text-accent"></i>
+                            <p class="lead fst-italic my-4">"Stackly Architecture transformed our vision into a stunning reality. Their attention to detail and innovative approach exceeded our expectations. The entire team was professional, communicative, and truly passionate about the project."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" class="rounded-circle" width="50" height="50" style="object-fit:cover;" alt="">
+                                <div class="text-start">
+                                    <h6 class="mb-0 fw-bold">Rajesh Mehta</h6>
+                                    <small class="text-muted">CEO, TechVentures</small>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card text-center">
+                            <i class="bi bi-quote fs-1 text-accent"></i>
+                            <p class="lead fst-italic my-4">"Working with Stackly was an absolute pleasure. They designed our dream home with such precision and creativity. Every space feels intentional and beautiful. Highly recommend their residential design services."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" class="rounded-circle" width="50" height="50" style="object-fit:cover;" alt="">
+                                <div class="text-start">
+                                    <h6 class="mb-0 fw-bold">Ananya Patel</h6>
+                                    <small class="text-muted">Homeowner</small>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card text-center">
+                            <i class="bi bi-quote fs-1 text-accent"></i>
+                            <p class="lead fst-italic my-4">"The commercial complex Stackly designed for us has become a landmark in the city. Their understanding of both aesthetics and functionality is remarkable. The project was delivered on time and within budget."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop" class="rounded-circle" width="50" height="50" style="object-fit:cover;" alt="">
+                                <div class="text-start">
+                                    <h6 class="mb-0 fw-bold">Vikram Singh</h6>
+                                    <small class="text-muted">Director, Singh Group</small>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center gap-2 mt-4">
+                    <span class="testimonial-dot active" data-index="0"></span>
+                    <span class="testimonial-dot" data-index="1"></span>
+                    <span class="testimonial-dot" data-index="2"></span>
+                </div>
+                <button class="testimonial-btn testimonial-prev" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></button>
+                <button class="testimonial-btn testimonial-next" onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="section-padding bg-light overflow-hidden">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Latest Updates</span>
+                <h2 class="section-title">From Our Blog</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Insights, trends, and stories from the world of architecture and design.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">Jun 15, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Sustainable Design</span>
+                            <h5>The Future of Green Architecture</h5>
+                            <p class="text-muted small">Exploring how sustainable materials and energy-efficient design are shaping the future of modern architecture.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">May 28, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Interior Design</span>
+                            <h5>Biophilic Design: Bringing Nature Indoors</h5>
+                            <p class="text-muted small">How incorporating natural elements into interior spaces improves wellbeing and productivity.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <article class="blog-card">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=800&auto=format&fit=crop" alt="">
+                            <span class="blog-date">Apr 10, 2026</span>
+                        </div>
+                        <div class="blog-body">
+                            <span class="badge bg-accent-subtle text-accent mb-2">Urban Planning</span>
+                            <h5>Smart Cities of Tomorrow</h5>
+                            <p class="text-muted small">An inside look at how technology and thoughtful design are creating more livable urban environments.</p>
+                            <a href="404.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="blog.html" class="btn btn-outline-dark rounded-pill px-5">Read All Articles <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section section-padding overflow-hidden">
+        <div class="floating-shape floating-shape-1"></div>
+        <div class="floating-shape floating-shape-2"></div>
+        <div class="container cta-content text-center">
+            <span class="section-tag">Let's Create Together</span>
+            <h2 class="section-title">Ready to Build Something <span class="text-gradient-animated">Extraordinary</span>?</h2>
+            <p class="mx-auto mb-4" style="max-width:600px;">Your vision deserves the best. Let's collaborate to create spaces that inspire, function, and endure for generations.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contact.html" class="btn btn-accent btn-lg rounded-pill px-5 btn-ripple">Start Your Project <i class="bi bi-arrow-right ms-2"></i></a>
+                <a href="projects.html" class="btn btn-outline-light btn-lg rounded-pill px-5">View Our Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding overflow-hidden">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Discuss Your Project</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Ready to bring your vision to life? Reach out and let's start a conversation about your next architectural project.</p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Our Office</h6>
+                                <p class="text-muted mb-0">42 Design District, MG Road<br>Bangalore, Karnataka 560001</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Email Us</h6>
+                                <p class="text-muted mb-0">hello@stacklyarchitecture.com<br>careers@stacklyarchitecture.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Call Us</h6>
+                                <p class="text-muted mb-0">+91 897 849 3237<br>+91 80 2345 6789</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <div class="contact-icon"><i class="bi bi-clock"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Working Hours</h6>
+                                <p class="text-muted mb-0">Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form id="contactForm" class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-control-lg" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control form-control-lg" placeholder="Phone Number">
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select form-select-lg">
+                                    <option value="">Project Type</option>
+                                    <option>Residential</option>
+                                    <option>Commercial</option>
+                                    <option>Interior</option>
+                                    <option>Landscape</option>
+                                    <option>Consulting</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control form-control-lg" rows="5" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-accent btn-lg rounded-pill px-5">
+                                    Send Message <i class="bi bi-send ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3"><img src="images/image.png" alt="Stackly Architecture" height="30"></h5>
+                    <p class="text-white-50 small">Designing exceptional spaces that inspire, innovate, and endure. From concept to completion, we bring architectural visions to life.</p>
+                    <div class="social-links mt-3">
+                        <a href="404.html"><i class="bi bi-instagram"></i></a>
+                        <a href="404.html"><i class="bi bi-facebook"></i></a>
+                        <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                        <a href="404.html"><i class="bi bi-pinterest"></i></a>
+                        <a href="404.html"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none small">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none small">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Services</a></li>
+                        <li class="mb-2"><a href="projects.html" class="text-white-50 text-decoration-none small">Projects</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none small">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Residential</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Commercial</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Interior Design</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Landscape</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Urban Planning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 small">Subscribe for the latest in architecture and design.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-accent" type="button" onclick="location.href='404.html'"><i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-white-10 my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white-50 small mb-0">&copy; 2026 Stackly Architecture. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="404.html" class="text-white-50 text-decoration-none small me-3">Privacy Policy</a>
+                    <a href="404.html" class="text-white-50 text-decoration-none small">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

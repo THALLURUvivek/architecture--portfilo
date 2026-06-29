@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Stackly Architecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/image.png" alt="Stackly Architecture" height="40">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="signin.html" class="btn btn-outline-light rounded-pill px-4">Sign In</a>
+                    <a href="signup.html" class="btn btn-accent rounded-pill px-4">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero-section">
+        <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content text-center text-white">
+            <span class="section-tag" style="background:rgba(196, 122, 86,0.2);color:#c47a56;">Our Portfolio</span>
+            <h1 class="display-4 fw-bold" style="font-family:'Playfair Display',serif;">Featured Projects</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width:600px;">Explore our curated collection of architectural projects that showcase our expertise and creative vision.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="d-flex justify-content-center gap-2 flex-wrap mb-5" id="filterTabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="landscape">Landscape</button>
+            </div>
+            <div class="row g-4" id="projectGrid">
+                <div class="col-lg-4 col-md-6 project-item" data-category="residential">
+                    <div class="project-card" onclick="openLightbox(0)">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Residential</span>
+                            <h4>Modern Villa</h4>
+                            <p>Bangalore, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="commercial">
+                    <div class="project-card" onclick="openLightbox(1)">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Commercial</span>
+                            <h4>Tech Park Tower</h4>
+                            <p>Hyderabad, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="interior">
+                    <div class="project-card" onclick="openLightbox(2)">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Interior</span>
+                            <h4>Luxury Penthouse</h4>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6 project-item" data-category="residential">
+                    <div class="project-card" onclick="openLightbox(3)">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Residential</span>
+                            <h4>Lakefront Estate</h4>
+                            <p>Nainital, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="landscape">
+                    <div class="project-card" onclick="openLightbox(4)">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Landscape</span>
+                            <h4>Botanical Garden</h4>
+                            <p>Pune, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="commercial">
+                    <div class="project-card" onclick="openLightbox(5)">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Commercial</span>
+                            <h4>Mall of Dreams</h4>
+                            <p>Chennai, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="interior">
+                    <div class="project-card" onclick="openLightbox(6)">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Interior</span>
+                            <h4>Minimalist Apartment</h4>
+                            <p>Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item" data-category="landscape">
+                    <div class="project-card" onclick="openLightbox(7)">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop" alt="">
+                        <div class="project-overlay">
+                            <span class="project-cat">Landscape</span>
+                            <h4>Rooftop Garden</h4>
+                            <p>Kolkata, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)"><i class="bi bi-chevron-left"></i></button>
+        <img id="lightboxImg" src="" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)"><i class="bi bi-chevron-right"></i></button>
+        <span class="lightbox-counter" id="lightboxCounter"></span>
+    </div>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Track Record</span>
+                <h2 class="section-title">Our Numbers Speak</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">A legacy built on trust, innovation, and thousands of successful projects.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="15" data-suffix="+">0</h3>
+                    <p class="text-muted">Years Experience</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="500" data-suffix="+">0</h3>
+                    <p class="text-muted">Projects Delivered</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="320" data-suffix="+">0</h3>
+                    <p class="text-muted">Happy Clients</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="120" data-suffix="+">0</h3>
+                    <p class="text-muted">Awards Won</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-carousel position-relative mx-auto" style="max-width:800px;">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card text-center">
+                            <i class="bi bi-quote fs-1 text-accent"></i>
+                            <p class="lead fst-italic my-4">"Stackly Architecture transformed our vision into a stunning reality. Their attention to detail and innovative approach exceeded our expectations."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" class="rounded-circle" width="50" height="50" style="object-fit:cover;" alt="">
+                                <div class="text-start">
+                                    <h6 class="mb-0 fw-bold">Rajesh Mehta</h6>
+                                    <small class="text-muted">CEO, TechVentures</small>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card text-center">
+                            <i class="bi bi-quote fs-1 text-accent"></i>
+                            <p class="lead fst-italic my-4">"Working with Stackly was an absolute pleasure. They designed our dream home with such precision and creativity. Every space feels intentional and beautiful."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" class="rounded-circle" width="50" height="50" style="object-fit:cover;" alt="">
+                                <div class="text-start">
+                                    <h6 class="mb-0 fw-bold">Ananya Patel</h6>
+                                    <small class="text-muted">Homeowner</small>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card text-center">
+                            <i class="bi bi-quote fs-1 text-accent"></i>
+                            <p class="lead fst-italic my-4">"The commercial complex Stackly designed for us has become a landmark in the city. The project was delivered on time and within budget."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop" class="rounded-circle" width="50" height="50" style="object-fit:cover;" alt="">
+                                <div class="text-start">
+                                    <h6 class="mb-0 fw-bold">Vikram Singh</h6>
+                                    <small class="text-muted">Director, Singh Group</small>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center gap-2 mt-4">
+                    <span class="testimonial-dot active" data-index="0"></span>
+                    <span class="testimonial-dot" data-index="1"></span>
+                    <span class="testimonial-dot" data-index="2"></span>
+                </div>
+                <button class="testimonial-btn testimonial-prev" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></button>
+                <button class="testimonial-btn testimonial-next" onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Our Approach</span>
+                <h2 class="section-title">How We Deliver Excellence</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">A proven methodology that ensures every project is delivered on time, within budget, and beyond expectations.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-search"></i></div>
+                        <h4>1. Discover & Plan</h4>
+                        <p class="text-muted">We deeply understand your vision, site constraints, budget, and requirements before creating a strategic roadmap.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-pencil-square"></i></div>
+                        <h4>2. Design & Refine</h4>
+                        <p class="text-muted">Our team develops concepts, 3D models, and detailed drawings, iterating with your feedback until perfection.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-building-check"></i></div>
+                        <h4>3. Build & Deliver</h4>
+                        <p class="text-muted">We oversee construction with rigorous quality control, ensuring the final result matches the design vision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Our Clients</span>
+                <h2 class="section-title">Trusted By Leading Brands</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">We've had the privilege of working with some of the most prestigious organizations across India.</p>
+            </div>
+            <div class="row align-items-center justify-content-center g-5">
+                <div class="col-4 col-lg-2 text-center opacity-50">
+                    <h3 class="fw-bold text-muted" style="font-size:1.3rem;letter-spacing:1px;text-transform:uppercase;">TechVentures</h3>
+                </div>
+                <div class="col-4 col-lg-2 text-center opacity-50">
+                    <h3 class="fw-bold text-muted" style="font-size:1.3rem;letter-spacing:1px;text-transform:uppercase;">GreenBuild</h3>
+                </div>
+                <div class="col-4 col-lg-2 text-center opacity-50">
+                    <h3 class="fw-bold text-muted" style="font-size:1.3rem;letter-spacing:1px;text-transform:uppercase;">UrbanSpaces</h3>
+                </div>
+                <div class="col-4 col-lg-2 text-center opacity-50">
+                    <h3 class="fw-bold text-muted" style="font-size:1.3rem;letter-spacing:1px;text-transform:uppercase;">Skyline Corp</h3>
+                </div>
+                <div class="col-4 col-lg-2 text-center opacity-50">
+                    <h3 class="fw-bold text-muted" style="font-size:1.3rem;letter-spacing:1px;text-transform:uppercase;">EcoHomes</h3>
+                </div>
+                <div class="col-4 col-lg-2 text-center opacity-50">
+                    <h3 class="fw-bold text-muted" style="font-size:1.3rem;letter-spacing:1px;text-transform:uppercase;">DesignHub</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-accent" style="background:linear-gradient(135deg, var(--accent), var(--accent-dark)) !important;">
+        <div class="container text-center text-white">
+            <span class="section-tag" style="background:rgba(255,255,255,0.2);color:#fff;">Start Your Journey</span>
+            <h2 class="display-5 fw-bold mb-3" style="font-family:'Playfair Display',serif;">Have a Project in Mind?</h2>
+            <p class="lead mb-4" style="opacity:0.9;max-width:600px;margin:0 auto;">Let's create something extraordinary together. Reach out for a free consultation.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contact.html" class="btn btn-dark btn-lg rounded-pill px-5">Get in Touch</a>
+                <a href="services.html" class="btn btn-outline-light btn-lg rounded-pill px-5">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3"><img src="images/image.png" alt="Stackly Architecture" height="30"></h5>
+                    <p class="text-white-50 small">Designing exceptional spaces that inspire, innovate, and endure.</p>
+                    <div class="social-links mt-3">
+                        <a href="404.html"><i class="bi bi-instagram"></i></a>
+                        <a href="404.html"><i class="bi bi-facebook"></i></a>
+                        <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                        <a href="404.html"><i class="bi bi-pinterest"></i></a>
+                        <a href="404.html"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none small">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none small">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Services</a></li>
+                        <li class="mb-2"><a href="projects.html" class="text-white-50 text-decoration-none small">Projects</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none small">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Residential</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Commercial</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Interior Design</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Landscape</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Urban Planning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 small">Subscribe for the latest in architecture and design.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-accent" type="button" onclick="location.href='404.html'"><i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-white-10 my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white-50 small mb-0">&copy; 2026 Stackly Architecture. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="404.html" class="text-white-50 text-decoration-none small me-3">Privacy Policy</a>
+                    <a href="404.html" class="text-white-50 text-decoration-none small">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

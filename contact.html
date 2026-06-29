@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Stackly Architecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/image.png" alt="Stackly Architecture" height="40">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="signin.html" class="btn btn-outline-light rounded-pill px-4">Sign In</a>
+                    <a href="signup.html" class="btn btn-accent rounded-pill px-4">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero-section">
+        <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2074&auto=format&fit=crop');"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content text-center text-white">
+            <span class="section-tag" style="background:rgba(196, 122, 86,0.2);color:#c47a56;">Get In Touch</span>
+            <h1 class="display-4 fw-bold" style="font-family:'Playfair Display',serif;">Let's Discuss Your Project</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width:600px;">Ready to bring your vision to life? Reach out and let's start a conversation.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Our Office</h6>
+                                <p class="text-muted mb-0">42 Design District, MG Road<br>Bangalore, Karnataka 560001</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Email Us</h6>
+                                <p class="text-muted mb-0">hello@stacklyarchitecture.com<br>careers@stacklyarchitecture.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Call Us</h6>
+                                <p class="text-muted mb-0">+91 897 849 3237<br>+91 80 2345 6789</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <div class="contact-icon"><i class="bi bi-clock"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Working Hours</h6>
+                                <p class="text-muted mb-0">Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h6 class="fw-bold mb-3">Follow Us</h6>
+                        <div class="social-links" style="justify-content:start;">
+                            <a href="404.html" style="background:rgba(196, 122, 86,0.1);color:var(--accent);"><i class="bi bi-instagram"></i></a>
+                            <a href="404.html" style="background:rgba(196, 122, 86,0.1);color:var(--accent);"><i class="bi bi-facebook"></i></a>
+                            <a href="404.html" style="background:rgba(196, 122, 86,0.1);color:var(--accent);"><i class="bi bi-linkedin"></i></a>
+                            <a href="404.html" style="background:rgba(196, 122, 86,0.1);color:var(--accent);"><i class="bi bi-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form id="contactForm" class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-control-lg" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control form-control-lg" placeholder="Phone Number">
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select form-select-lg">
+                                    <option value="">Project Type</option>
+                                    <option>Residential</option>
+                                    <option>Commercial</option>
+                                    <option>Interior</option>
+                                    <option>Landscape</option>
+                                    <option>Consulting</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control form-control-lg" rows="5" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-accent btn-lg rounded-pill px-5">
+                                    Send Message <i class="bi bi-send ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="rounded-4 overflow-hidden shadow">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.977365127775!2d77.6383!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14f5b8b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sMG%20Road%2C%20Bangalore!5e0!3m2!1sen!2sin!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Quick Answers</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Find answers to common questions before reaching out.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="contactFaq">
+                        <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq1">
+                                    What information should I bring to the first consultation?
+                                </button>
+                            </h2>
+                            <div id="cfaq1" class="accordion-collapse collapse show" data-bs-parent="#contactFaq">
+                                <div class="accordion-body text-muted">Bring your property documents, budget range, inspiration images, and a list of must-haves. We'll guide you through the rest during the consultation.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq2">
+                                    How long does a typical consultation take?
+                                </button>
+                            </h2>
+                            <div id="cfaq2" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
+                                <div class="accordion-body text-muted">Initial consultations typically last 60-90 minutes. We discuss your vision, requirements, budget, and timeline. It's free and there's no obligation to proceed.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq3">
+                                    Do you work on projects outside Bangalore?
+                                </button>
+                            </h2>
+                            <div id="cfaq3" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
+                                <div class="accordion-body text-muted">Yes, we take projects across India and Southeast Asia. Our team is equipped to handle remote project coordination with regular site visits.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Our Offices</span>
+                <h2 class="section-title">Visit Us</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">We have offices in key cities across India. Drop by for a chat.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-geo-alt"></i></div>
+                        <h4>Bangalore</h4>
+                        <p class="text-muted small mb-0">42 Design District, MG Road</p>
+                        <p class="text-muted small">Bangalore, Karnataka 560001</p>
+                        <p class="text-accent small fw-bold">+91 80 2345 6789</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-geo-alt"></i></div>
+                        <h4>Mumbai</h4>
+                        <p class="text-muted small mb-0">7B, Sea View Tower, Bandra West</p>
+                        <p class="text-muted small">Mumbai, Maharashtra 400050</p>
+                        <p class="text-accent small fw-bold">+91 22 4567 8901</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-geo-alt"></i></div>
+                        <h4>Hyderabad</h4>
+                        <p class="text-muted small mb-0">Level 5, Cyber Towers, Hitech City</p>
+                        <p class="text-muted small">Hyderabad, Telangana 500081</p>
+                        <p class="text-accent small fw-bold">+91 40 6789 0123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="display-3 fw-bold text-accent" style="font-family:'Playfair Display',serif;">500+</h3>
+                    <p class="text-muted">Projects Delivered</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="display-3 fw-bold text-accent" style="font-family:'Playfair Display',serif;">98%</h3>
+                    <p class="text-muted">Client Satisfaction</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="display-3 fw-bold text-accent" style="font-family:'Playfair Display',serif;">40+</h3>
+                    <p class="text-muted">Expert Team Members</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="display-3 fw-bold text-accent" style="font-family:'Playfair Display',serif;">15+</h3>
+                    <p class="text-muted">Years of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3"><img src="images/image.png" alt="Stackly Architecture" height="30"></h5>
+                    <p class="text-white-50 small">Designing exceptional spaces that inspire, innovate, and endure.</p>
+                    <div class="social-links mt-3">
+                        <a href="404.html"><i class="bi bi-instagram"></i></a>
+                        <a href="404.html"><i class="bi bi-facebook"></i></a>
+                        <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                        <a href="404.html"><i class="bi bi-pinterest"></i></a>
+                        <a href="404.html"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none small">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none small">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Services</a></li>
+                        <li class="mb-2"><a href="projects.html" class="text-white-50 text-decoration-none small">Projects</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none small">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Residential</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Commercial</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Interior Design</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Landscape</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Urban Planning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 small">Subscribe for the latest in architecture and design.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-accent" type="button" onclick="location.href='404.html'"><i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-white-10 my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white-50 small mb-0">&copy; 2026 Stackly Architecture. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="404.html" class="text-white-50 text-decoration-none small me-3">Privacy Policy</a>
+                    <a href="404.html" class="text-white-50 text-decoration-none small">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

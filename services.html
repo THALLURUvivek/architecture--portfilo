@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Stackly Architecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/image.png" alt="Stackly Architecture" height="40">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="signin.html" class="btn btn-outline-light rounded-pill px-4">Sign In</a>
+                    <a href="signup.html" class="btn btn-accent rounded-pill px-4">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero-section">
+        <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop');"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content text-center text-white">
+            <span class="section-tag" style="background:rgba(196, 122, 86,0.2);color:#c47a56;">What We Do</span>
+            <h1 class="display-4 fw-bold" style="font-family:'Playfair Display',serif;">Our Services</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width:600px;">From concept design to construction supervision, we offer end-to-end architectural services tailored to your vision.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="residential">
+                        <div class="service-icon"><i class="bi bi-house-heart"></i></div>
+                        <h4>Residential Design</h4>
+                        <p class="text-muted">Custom homes, villas, and apartments designed around your lifestyle.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="commercial">
+                        <div class="service-icon"><i class="bi bi-building"></i></div>
+                        <h4>Commercial Architecture</h4>
+                        <p class="text-muted">Offices, retail spaces, and mixed-use developments that drive business.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="interior">
+                        <div class="service-icon"><i class="bi bi-lamp"></i></div>
+                        <h4>Interior Design</h4>
+                        <p class="text-muted">Beautiful, functional interiors that reflect your personality and purpose.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="landscape">
+                        <div class="service-icon"><i class="bi bi-flower1"></i></div>
+                        <h4>Landscape Architecture</h4>
+                        <p class="text-muted">Outdoor spaces that blend beauty with sustainability.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="urban">
+                        <div class="service-icon"><i class="bi bi-map"></i></div>
+                        <h4>Urban Planning</h4>
+                        <p class="text-muted">Master planning and urban design for communities that thrive.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="consulting">
+                        <div class="service-icon"><i class="bi bi-clipboard-check"></i></div>
+                        <h4>Consulting & Supervision</h4>
+                        <p class="text-muted">Expert guidance from feasibility studies to construction oversight.</p>
+                        <span class="service-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="serviceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 p-lg-5">
+                    <div class="service-modal-icon mb-3">
+                        <i class="bi bi-house-heart fs-1 text-accent"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3" id="modalTitle">Residential Design</h3>
+                    <p class="text-muted" id="modalDesc">We create bespoke residential spaces that balance aesthetics, functionality, and comfort.</p>
+                    <ul class="list-unstyled mt-4" id="modalFeatures">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Custom home design & planning</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Interior space optimization</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Sustainable material selection</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Construction documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Our Process</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-chat-dots"></i></div>
+                        <h4>1. Consultation</h4>
+                        <p class="text-muted">We listen to your vision, understand your needs, and discuss possibilities.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-pencil"></i></div>
+                        <h4>2. Design</h4>
+                        <p class="text-muted">Our team creates conceptual designs, 3D visualizations, and detailed plans.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-file-check"></i></div>
+                        <h4>3. Approval</h4>
+                        <p class="text-muted">We handle permits, approvals, and regulatory compliance on your behalf.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-card text-center" style="cursor:default;">
+                        <div class="service-icon mx-auto"><i class="bi bi-tools"></i></div>
+                        <h4>4. Execution</h4>
+                        <p class="text-muted">From groundbreaking to completion, we supervise every phase of construction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Our Impact</span>
+                <h2 class="section-title">Delivering Excellence Since 2010</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Numbers that reflect our dedication to quality and client satisfaction.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="500" data-suffix="+">0</h3>
+                    <p class="text-muted">Projects Completed</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="40" data-suffix="+">0</h3>
+                    <p class="text-muted">Expert Architects</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="15" data-suffix="+">0</h3>
+                    <p class="text-muted">Years Experience</p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h3 class="counter-num display-3 fw-bold text-accent" data-target="120" data-suffix="+">0</h3>
+                    <p class="text-muted">Industry Awards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="text-muted mx-auto" style="max-width:600px;">Find answers to common questions about our services and process.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    What is the typical timeline for a residential project?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">A typical residential project takes 6-12 months from concept to completion, depending on the complexity and scale. This includes design development, approvals, and construction. We provide a detailed timeline during the initial consultation.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Do you handle government approvals and permits?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Yes, we manage all necessary approvals, permits, and regulatory compliance on behalf of our clients. Our team has extensive experience with local building codes and municipal regulations across major Indian cities.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    What is your design process?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Our design process follows four phases: Consultation (understanding your vision), Design (concept development and 3D visualization), Approval (permit handling), and Execution (construction supervision). We keep you involved at every stage.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Do you offer interior design services separately?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Absolutely. Our interior design services can be engaged independently or as part of a full architectural package. We specialize in residential, commercial, and hospitality interiors tailored to your style and needs.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 rounded-4 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    How do you charge for your services?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">We offer flexible pricing models including fixed fees, percentage-based fees, and hourly consulting rates. The fee structure depends on the project scope and complexity. We provide a transparent quotation during the initial consultation.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-accent" style="background:linear-gradient(135deg, var(--accent), var(--accent-dark)) !important;">
+        <div class="container text-center text-white">
+            <span class="section-tag" style="background:rgba(255,255,255,0.2);color:#fff;">Let's Work Together</span>
+            <h2 class="display-5 fw-bold mb-3" style="font-family:'Playfair Display',serif;">Ready to Start Your Project?</h2>
+            <p class="lead mb-4" style="opacity:0.9;max-width:600px;margin:0 auto;">Transform your vision into reality. Get in touch with our team for a free consultation.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contact.html" class="btn btn-dark btn-lg rounded-pill px-5">Book a Consultation</a>
+                <a href="projects.html" class="btn btn-outline-light btn-lg rounded-pill px-5">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3"><img src="images/image.png" alt="Stackly Architecture" height="30"></h5>
+                    <p class="text-white-50 small">Designing exceptional spaces that inspire, innovate, and endure.</p>
+                    <div class="social-links mt-3">
+                        <a href="404.html"><i class="bi bi-instagram"></i></a>
+                        <a href="404.html"><i class="bi bi-facebook"></i></a>
+                        <a href="404.html"><i class="bi bi-linkedin"></i></a>
+                        <a href="404.html"><i class="bi bi-pinterest"></i></a>
+                        <a href="404.html"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none small">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none small">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Services</a></li>
+                        <li class="mb-2"><a href="projects.html" class="text-white-50 text-decoration-none small">Projects</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none small">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Residential</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Commercial</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Interior Design</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Landscape</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none small">Urban Planning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 small">Subscribe for the latest in architecture and design.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-accent" type="button" onclick="location.href='404.html'"><i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-white-10 my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white-50 small mb-0">&copy; 2026 Stackly Architecture. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="404.html" class="text-white-50 text-decoration-none small me-3">Privacy Policy</a>
+                    <a href="404.html" class="text-white-50 text-decoration-none small">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
