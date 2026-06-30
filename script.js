@@ -1,5 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    /* ========== HERO PARTICLES ========== */
+    (function heroParticles() {
+        const container = document.getElementById('heroParticles');
+        if (!container) return;
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'hero-particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.width = p.style.height = (Math.random() * 4 + 2) + 'px';
+            p.style.animationDelay = Math.random() * 8 + 's';
+            p.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            p.style.opacity = Math.random() * 0.4 + 0.1;
+            container.appendChild(p);
+        }
+    })();
+
     /* ========== NAVBAR SCROLL EFFECT ========== */
     (function navbarScroll() {
         const nav = document.getElementById('mainNav');
@@ -290,31 +306,155 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ========== AUTH FORMS (Sign In / Sign Up) ========== */
     (function authForms() {
+        const roleUrls = {
+            client: 'client-dashboard.html',
+            architect: 'architect-dashboard.html',
+            admin: 'admin-dashboard.html'
+        };
+
+        function getSelectedRole(form) {
+            const checked = form.querySelector('input[name="role"]:checked');
+            return checked ? checked.value : 'client';
+        }
+
+        function saveCurrentSession(name, email, role) {
+            const initials = name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userRole', role);
+            localStorage.setItem('userInitials', initials);
+        }
+
+        function getStoredUsers() {
+            try { return JSON.parse(localStorage.getItem('users')) || []; } catch { return []; }
+        }
+
+        function saveStoredUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        /* ---- Validation helpers ---- */
+        function showError(errBox, msg) {
+            errBox.innerHTML = msg;
+            errBox.style.display = 'block';
+        }
+
+        function isValidEmail(v) {
+            return /^[^\s@]+@[^\s@]+\.com$/.test(v);
+        }
+
+        function isValidName(v) {
+            return /^[A-Za-z\s]+$/.test(v);
+        }
+
+        function isValidPassword(v) {
+            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(v);
+        }
+
+        /* ---- Sign In ---- */
         const signinForm = document.getElementById('signinForm');
         if (signinForm) {
+            const errBox = document.getElementById('signinError');
             signinForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const btn = signinForm.querySelector('button[type="submit"]');
+                const email = document.getElementById('signinEmail').value.trim().toLowerCase();
+                const password = document.getElementById('signinPassword').value.trim();
+                const role = getSelectedRole(signinForm);
+
+                if (!isValidEmail(email)) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
+                    btn.disabled = false;
+                    showError(errBox, 'Email must end with <strong>.com</strong>.');
+                    return;
+                }
+
+                if (!isValidPassword(password)) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
+                    btn.disabled = false;
+                    showError(errBox, 'Password must be 8+ characters with uppercase, lowercase &amp; a number.');
+                    return;
+                }
+
+                const users = getStoredUsers();
+                const match = users.find(u => u.email === email && u.password === password);
+
+                if (!match) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
+                    btn.disabled = false;
+                    showError(errBox, 'Invalid email or password. Please try again.');
+                    return;
+                }
+
                 btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Signing In...';
                 btn.disabled = true;
+                errBox.style.display = 'none';
+
                 setTimeout(() => {
                     btn.innerHTML = '<i class="bi bi-check-circle me-2"></i> Signed In!';
+                    saveCurrentSession(match.name, match.email, role);
                     setTimeout(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = roleUrls[role] || roleUrls.client;
                     }, 1000);
                 }, 1500);
             });
         }
 
+        /* ---- Sign Up ---- */
         const signupForm = document.getElementById('signupForm');
         if (signupForm) {
+            const errBox = document.getElementById('signupError');
             signupForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const btn = signupForm.querySelector('button[type="submit"]');
+                const firstName = document.getElementById('signupFirstName').value.trim();
+                const lastName = document.getElementById('signupLastName').value.trim();
+                const email = document.getElementById('signupEmail').value.trim().toLowerCase();
+                const password = document.getElementById('signupPassword').value.trim();
+                const confirm = document.getElementById('signupConfirmPassword').value.trim();
+                const role = getSelectedRole(signupForm);
+
+                if (!isValidName(firstName) || !isValidName(lastName)) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
+                    showError(errBox, 'Name fields must contain only letters and spaces (no numbers).');
+                    return;
+                }
+
+                if (!isValidEmail(email)) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
+                    showError(errBox, 'Email must end with <strong>.com</strong>.');
+                    return;
+                }
+
+                if (!isValidPassword(password)) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
+                    showError(errBox, 'Password must be 8+ characters with uppercase, lowercase &amp; a number.');
+                    return;
+                }
+
+                if (password !== confirm) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
+                    showError(errBox, 'Passwords do not match.');
+                    return;
+                }
+
+                const users = getStoredUsers();
+                if (users.some(u => u.email === email)) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
+                    showError(errBox, 'An account with this email already exists.');
+                    return;
+                }
+
+                const name = (firstName + ' ' + lastName).trim() || email.split('@')[0].replace(/[.\-_0-9]/g, ' ').replace(/\b\w/g, l => l.toUpperCase()).trim();
+
                 btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Creating Account...';
                 btn.disabled = true;
+                errBox.style.display = 'none';
+
                 setTimeout(() => {
                     btn.innerHTML = '<i class="bi bi-check-circle me-2"></i> Account Created!';
+                    users.push({ name, email, password, role });
+                    saveStoredUsers(users);
                     setTimeout(() => {
                         window.location.href = 'signin.html';
                     }, 1000);
@@ -469,6 +609,15 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(step);
         });
     })();
+
+    /* ========== PASSWORD TOGGLE ========== */
+    window.togglePassword = function(id, el) {
+        const input = document.getElementById(id);
+        if (!input) return;
+        const isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+        el.querySelector('i').className = isPassword ? 'bi bi-eye' : 'bi bi-eye-slash';
+    };
 
     /* ========== PARALLAX MOUSE ON HERO ========== */
     (function heroParallax() {

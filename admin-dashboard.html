@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Stackly Architecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-body admin-dash">
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html"><img src="images/image.png" alt="Stackly" height="36"></a>
+            <button class="btn-close btn-close-white d-lg-none" onclick="toggleSidebar()"></button>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-avatar">AK</div>
+            <div class="sidebar-user-info">
+                <h6 id="sidebarName">Alex King</h6>
+                <span class="badge-role">Admin</span>
+                <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:2px;" id="sidebarEmail">a.king@stackly.com</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active" data-tab="dashboard"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+            <a href="#" data-tab="users"><i class="bi bi-people"></i> Users <span class="nav-badge">127</span></a>
+            <a href="#" data-tab="projects"><i class="bi bi-folder"></i> Projects</a>
+            <a href="#" data-tab="analytics"><i class="bi bi-graph-up"></i> Analytics</a>
+            <a href="#" data-tab="reports"><i class="bi bi-file-bar-graph"></i> Reports</a>
+            <a href="#" data-tab="audit"><i class="bi bi-shield-check"></i> Audit Log</a>
+            <a href="#" data-tab="settings"><i class="bi bi-gear"></i> Settings</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html"><i class="bi bi-box-arrow-left"></i> Sign Out</a>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Main -->
+    <main class="dashboard-main">
+
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <button class="btn-menu" onclick="toggleSidebar()"><i class="bi bi-list"></i></button>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search users, projects...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <button class="btn-icon"><i class="bi bi-bell"></i><span class="dot"></span></button>
+                <button class="btn-icon"><i class="bi bi-envelope"></i></button>
+                <div class="topbar-avatar">AK</div>
+            </div>
+        </header>
+
+        <!-- ============ TAB: DASHBOARD ============ -->
+        <div class="tab-panel active" id="tab-dashboard">
+            <div class="welcome-section">
+                <h2>Admin Panel, Alex <span style="font-family:Inter;">⚡</span></h2>
+                <p>Full platform overview — users, revenue, and system health.</p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-people"></i></div>
+                        <div class="stat-card-body">
+                            <h3>127</h3>
+                            <p>Total Users</p>
+                            <span class="stat-trend up"><i class="bi bi-arrow-up-short"></i> +12 this month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-folder"></i></div>
+                        <div class="stat-card-body">
+                            <h3>45</h3>
+                            <p>Active Projects</p>
+                            <span class="stat-trend up"><i class="bi bi-arrow-up-short"></i> +5 this week</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-currency-dollar"></i></div>
+                        <div class="stat-card-body">
+                            <h3>$2.4M</h3>
+                            <p>Revenue</p>
+                            <span class="stat-trend up"><i class="bi bi-arrow-up-short"></i> +18% QoQ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(234,179,8,0.15);color:#eab308;"><i class="bi bi-hourglass"></i></div>
+                        <div class="stat-card-body">
+                            <h3>18</h3>
+                            <p>Pending Requests</p>
+                            <span class="stat-trend down"><i class="bi bi-arrow-down-short"></i> -4 yesterday</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distribution Charts -->
+            <div class="row g-4 mb-4">
+                <div class="col-xl-7">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <h5>User Distribution</h5>
+                            <a href="#" onclick="switchTab('users')">Manage Users</a>
+                        </div>
+                        <div class="chart-list">
+                            <div class="chart-item">
+                                <span class="chart-label">Clients</span>
+                                <div class="chart-bar"><div class="chart-fill blue" style="width:78%"></div></div>
+                                <span class="chart-percent" style="width:auto;">78 <small style="color:rgba(255,255,255,0.3);font-size:0.7rem;">users</small></span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Architects</span>
+                                <div class="chart-bar"><div class="chart-fill" style="width:18%"></div></div>
+                                <span class="chart-percent" style="width:auto;">18</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Admins</span>
+                                <div class="chart-bar"><div class="chart-fill yellow" style="width:4%"></div></div>
+                                <span class="chart-percent" style="width:auto;">4</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Pending</span>
+                                <div class="chart-bar"><div class="chart-fill green" style="width:27%"></div></div>
+                                <span class="chart-percent" style="width:auto;">27</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <h5>Revenue by Category</h5>
+                            <a href="#" onclick="switchTab('analytics')">Details</a>
+                        </div>
+                        <div class="chart-list">
+                            <div class="chart-item">
+                                <span class="chart-label">Residential</span>
+                                <div class="chart-bar"><div class="chart-fill" style="width:45%"></div></div>
+                                <span class="chart-percent" style="width:auto;">45%</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Commercial</span>
+                                <div class="chart-bar"><div class="chart-fill blue" style="width:30%"></div></div>
+                                <span class="chart-percent" style="width:auto;">30%</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Interior</span>
+                                <div class="chart-bar"><div class="chart-fill green" style="width:15%"></div></div>
+                                <span class="chart-percent" style="width:auto;">15%</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Consulting</span>
+                                <div class="chart-bar"><div class="chart-fill yellow" style="width:10%"></div></div>
+                                <span class="chart-percent" style="width:auto;">10%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System + Activity -->
+            <div class="row g-4">
+                <div class="col-xl-5">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <h5>System Health</h5>
+                            <a href="#">View All</a>
+                        </div>
+                        <div class="system-metrics">
+                            <div class="metric-item">
+                                <div class="metric-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-cloud-check"></i></div>
+                                <div class="metric-info">
+                                    <h6>Server Status</h6>
+                                    <div class="metric-value">Online <small style="color:#22c55e;">●</small></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-database"></i></div>
+                                <div class="metric-info">
+                                    <h6>Database</h6>
+                                    <div class="metric-value">2.3 <small style="color:rgba(255,255,255,0.3);">GB</small></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-icon" style="background:rgba(234,179,8,0.15);color:#eab308;"><i class="bi bi-people"></i></div>
+                                <div class="metric-info">
+                                    <h6>Active Now</h6>
+                                    <div class="metric-value">23 <small style="color:rgba(255,255,255,0.3);">users</small></div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-speedometer2"></i></div>
+                                <div class="metric-info">
+                                    <h6>Response Time</h6>
+                                    <div class="metric-value">142 <small style="color:rgba(255,255,255,0.3);">ms</small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <h5>Recent Activity</h5>
+                            <a href="#" onclick="switchTab('audit')">Audit Log</a>
+                        </div>
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-person-plus"></i></div>
+                                <div class="activity-content">
+                                    <p><strong>New user registered</strong> — Michael Torres (Architect)</p>
+                                    <div class="activity-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-check-circle"></i></div>
+                                <div class="activity-content">
+                                    <p><strong>Project approved</strong> — Park Residence Phase 3</p>
+                                    <div class="activity-time">4 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-file-earmark"></i></div>
+                                <div class="activity-content">
+                                    <p><strong>Report generated</strong> — Monthly revenue summary</p>
+                                    <div class="activity-time">6 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(239,68,68,0.15);color:#ef4444;"><i class="bi bi-shield-exclamation"></i></div>
+                                <div class="activity-content">
+                                    <p><strong>Security alert</strong> — Failed login from IP 192.168.1.x</p>
+                                    <div class="activity-time">1 day ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: USERS ============ -->
+        <div class="tab-panel" id="tab-users">
+            <div class="welcome-section">
+                <h2>Users</h2>
+                <p>Manage all platform users, roles, and permissions.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="user-row">
+                    <div class="user-avatar" style="background:linear-gradient(135deg,#3b82f6,#2563eb);">MT</div>
+                    <div class="user-info"><h6>Michael Torres</h6><span>Architect · m.torres@email.com</span></div>
+                    <span class="user-role-badge" style="background:rgba(196,122,86,0.12);color:var(--accent);">Architect</span>
+                    <div class="user-status online"></div>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:linear-gradient(135deg,#22c55e,#16a34a);">EW</div>
+                    <div class="user-info"><h6>Emma Wilson</h6><span>Client · e.wilson@email.com</span></div>
+                    <span class="user-role-badge" style="background:rgba(59,130,246,0.12);color:#3b82f6;">Client</span>
+                    <div class="user-status online"></div>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:linear-gradient(135deg,#c47a56,#a05a3a);">JP</div>
+                    <div class="user-info"><h6>James Park</h6><span>Client · j.park@email.com</span></div>
+                    <span class="user-role-badge" style="background:rgba(59,130,246,0.12);color:#3b82f6;">Client</span>
+                    <div class="user-status online"></div>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);">SB</div>
+                    <div class="user-info"><h6>Sarah Blake</h6><span>Architect · s.blake@email.com</span></div>
+                    <span class="user-role-badge" style="background:rgba(196,122,86,0.12);color:var(--accent);">Architect</span>
+                    <div class="user-status away"></div>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:linear-gradient(135deg,#eab308,#ca8a04);">RN</div>
+                    <div class="user-info"><h6>Richard Nguyen</h6><span>Client · r.nguyen@email.com</span></div>
+                    <span class="user-role-badge" style="background:rgba(59,130,246,0.12);color:#3b82f6;">Client</span>
+                    <div class="user-status offline"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: PROJECTS ============ -->
+        <div class="tab-panel" id="tab-projects">
+            <div class="welcome-section">
+                <h2>All Projects</h2>
+                <p>Centralized view of every project across the platform.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="user-row">
+                    <div class="user-avatar" style="background:rgba(196,122,86,0.15);color:var(--accent);font-size:1rem;"><i class="bi bi-building"></i></div>
+                    <div class="user-info"><h6>Skyline Villa</h6><span>John Doe · $450K · Jul 2026</span></div>
+                    <span class="user-role-badge" style="background:rgba(34,197,94,0.12);color:#22c55e;">Active</span>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:rgba(59,130,246,0.15);color:#3b82f6;font-size:1rem;"><i class="bi bi-water"></i></div>
+                    <div class="user-info"><h6>Ocean Tower</h6><span>Coastal Dev · $2.1M · Dec 2026</span></div>
+                    <span class="user-role-badge" style="background:rgba(234,179,8,0.12);color:#eab308;">In Progress</span>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:rgba(34,197,94,0.15);color:#22c55e;font-size:1rem;"><i class="bi bi-tree"></i></div>
+                    <div class="user-info"><h6>Park Residence</h6><span>Emma Wilson · $320K · Done</span></div>
+                    <span class="user-role-badge" style="background:rgba(59,130,246,0.12);color:#3b82f6;">Completed</span>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:rgba(239,68,68,0.15);color:#ef4444;font-size:1rem;"><i class="bi bi-house"></i></div>
+                    <div class="user-info"><h6>Urban Loft</h6><span>James Park · $180K · Feb 2027</span></div>
+                    <span class="user-role-badge" style="background:rgba(239,68,68,0.12);color:#ef4444;">Planning</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: ANALYTICS ============ -->
+        <div class="tab-panel" id="tab-analytics">
+            <div class="welcome-section">
+                <h2>Analytics</h2>
+                <p>Platform growth metrics and performance insights.</p>
+            </div>
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom"><h5>Monthly Active Users</h5></div>
+                        <div style="font-size:2.5rem;font-weight:800;color:#fff;font-family:'Playfair Display',serif;">89 <small style="font-size:1rem;color:rgba(255,255,255,0.3);font-weight:400;">+23%</small></div>
+                        <div class="chart-list" style="margin-top:16px;">
+                            <div class="chart-item">
+                                <span class="chart-label">This Month</span>
+                                <div class="chart-bar"><div class="chart-fill blue" style="width:89%"></div></div>
+                                <span class="chart-percent" style="width:auto;">89</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Last Month</span>
+                                <div class="chart-bar"><div class="chart-fill" style="width:72%"></div></div>
+                                <span class="chart-percent" style="width:auto;">72</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Q1 Avg</span>
+                                <div class="chart-bar"><div class="chart-fill green" style="width:65%"></div></div>
+                                <span class="chart-percent" style="width:auto;">65</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom"><h5>Quarterly Revenue</h5></div>
+                        <div style="font-size:2.5rem;font-weight:800;color:#fff;font-family:'Playfair Display',serif;">$842K <small style="font-size:1rem;color:rgba(255,255,255,0.3);font-weight:400;">Q2 2026</small></div>
+                        <div class="chart-list" style="margin-top:16px;">
+                            <div class="chart-item">
+                                <span class="chart-label">Q1 2026</span>
+                                <div class="chart-bar"><div class="chart-fill blue" style="width:68%"></div></div>
+                                <span class="chart-percent" style="width:auto;">$578K</span>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Q2 2026</span>
+                                <div class="chart-bar"><div class="chart-fill" style="width:100%"></div></div>
+                                <span class="chart-percent" style="width:auto;">$842K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: REPORTS ============ -->
+        <div class="tab-panel" id="tab-reports">
+            <div class="welcome-section">
+                <h2>Reports</h2>
+                <p>Downloadable reports for financial and operational analysis.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="user-row">
+                    <div class="user-avatar" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-file-earmark-pdf"></i></div>
+                    <div class="user-info"><h6>Monthly Revenue Report</h6><span>June 2026 · 2.8 MB</span></div>
+                    <a href="404.html" style="color:var(--accent);font-size:1.2rem;"><i class="bi bi-download"></i></a>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-file-earmark-bar-graph"></i></div>
+                    <div class="user-info"><h6>Project Completion Report</h6><span>Q2 2026 · 4.1 MB</span></div>
+                    <a href="404.html" style="color:var(--accent);font-size:1.2rem;"><i class="bi bi-download"></i></a>
+                </div>
+                <div class="user-row">
+                    <div class="user-avatar" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-file-earmark-text"></i></div>
+                    <div class="user-info"><h6>User Activity Log</h6><span>June 2026 · 1.5 MB</span></div>
+                    <a href="404.html" style="color:var(--accent);font-size:1.2rem;"><i class="bi bi-download"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: AUDIT LOG ============ -->
+        <div class="tab-panel" id="tab-audit">
+            <div class="welcome-section">
+                <h2>Audit Log</h2>
+                <p>System-wide security and activity tracking.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="activity-item">
+                    <div class="activity-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-person-plus"></i></div>
+                    <div class="activity-content"><p><strong>User registered</strong> — Michael Torres (Architect)</p><div class="activity-time">2 hours ago · IP: 203.45.x.x</div></div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-check-circle"></i></div>
+                    <div class="activity-content"><p><strong>Project approved</strong> — Park Residence Phase 3 by Sarah Mitchell</p><div class="activity-time">4 hours ago</div></div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-file-earmark"></i></div>
+                    <div class="activity-content"><p><strong>Report generated</strong> — Monthly revenue summary</p><div class="activity-time">6 hours ago · by Alex King</div></div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon" style="background:rgba(239,68,68,0.15);color:#ef4444;"><i class="bi bi-shield-exclamation"></i></div>
+                    <div class="activity-content"><p><strong>Failed login</strong> — Account: admin@stackly.com from IP 192.168.1.x</p><div class="activity-time">1 day ago · 3 attempts</div></div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon" style="background:rgba(234,179,8,0.15);color:#eab308;"><i class="bi bi-pencil"></i></div>
+                    <div class="activity-content"><p><strong>User updated</strong> — Emma Wilson role changed to Client</p><div class="activity-time">2 days ago</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: SETTINGS ============ -->
+        <div class="tab-panel" id="tab-settings">
+            <div class="welcome-section">
+                <h2>Settings</h2>
+                <p>Platform configuration and admin preferences.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom"><h5>Profile</h5></div>
+                        <div style="display:flex;align-items:center;gap:16px;">
+                            <div class="sidebar-avatar" style="width:56px;height:56px;font-size:1.3rem;">AK</div>
+                            <div>
+                                <h6 style="color:#fff;font-weight:600;margin:0;">Alex King</h6>
+                                <span style="color:rgba(255,255,255,0.4);font-size:0.85rem;">a.king@stackly.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom"><h5>Platform</h5></div>
+                        <div class="activity-item">
+                            <div class="activity-content"><p><strong>Maintenance Mode</strong></p></div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-content"><p><strong>Allow New Registrations</strong></p></div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('show');
+    document.querySelector('.sidebar-overlay').classList.toggle('show');
+}
+
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    document.querySelector('.sidebar-nav a[data-tab="' + tabId + '"]').classList.add('active');
+    if (window.innerWidth <= 991) toggleSidebar();
+}
+
+document.querySelectorAll('.sidebar-nav a[data-tab]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        switchTab(this.dataset.tab);
+    });
+});
+
+(function loadUser() {
+    const name = localStorage.getItem('userName') || 'Alex King';
+    const email = localStorage.getItem('userEmail') || 'a.king@stackly.com';
+    const initials = localStorage.getItem('userInitials') || 'AK';
+    const firstName = name.split(' ')[0];
+
+    document.querySelectorAll('.sidebar-avatar').forEach(el => { el.textContent = initials; });
+    document.querySelectorAll('.topbar-avatar').forEach(el => { el.textContent = initials; });
+    document.getElementById('sidebarName').textContent = name;
+    document.getElementById('sidebarEmail').textContent = email;
+
+    const welcomeEl = document.querySelector('.welcome-section h2');
+    if (welcomeEl) welcomeEl.innerHTML = welcomeEl.innerHTML.replace(/Admin Panel, \w+/g, 'Admin Panel, ' + firstName);
+
+    const settingsName = document.querySelector('#tab-settings .sidebar-avatar');
+    if (settingsName) settingsName.textContent = initials;
+    const settingsNameText = document.querySelector('#tab-settings .d-flex h6');
+    if (settingsNameText) settingsNameText.textContent = name;
+    const settingsEmail = document.querySelector('#tab-settings .d-flex span');
+    if (settingsEmail) settingsEmail.textContent = email;
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

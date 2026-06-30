@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - Stackly Architecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-body client-dash">
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html"><img src="images/image.png" alt="Stackly" height="36"></a>
+            <button class="btn-close btn-close-white d-lg-none" onclick="toggleSidebar()"></button>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-avatar">JD</div>
+            <div class="sidebar-user-info">
+                <h6 id="sidebarName">John Doe</h6>
+                <span class="badge-role">Client</span>
+                <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:2px;" id="sidebarEmail">john.doe@email.com</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active" data-tab="dashboard"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+            <a href="#" data-tab="projects"><i class="bi bi-folder"></i> My Projects</a>
+            <a href="#" data-tab="messages"><i class="bi bi-chat-dots"></i> Messages <span class="nav-badge">3</span></a>
+            <a href="#" data-tab="documents"><i class="bi bi-file-earmark-text"></i> Documents</a>
+            <a href="#" data-tab="appointments"><i class="bi bi-calendar-check"></i> Appointments</a>
+            <a href="#" data-tab="billing"><i class="bi bi-credit-card"></i> Billing</a>
+            <a href="#" data-tab="settings"><i class="bi bi-gear"></i> Settings</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html"><i class="bi bi-box-arrow-left"></i> Sign Out</a>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <!-- Topbar -->
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <button class="btn-menu" onclick="toggleSidebar()"><i class="bi bi-list"></i></button>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search projects...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <button class="btn-icon"><i class="bi bi-bell"></i><span class="dot"></span></button>
+                <button class="btn-icon"><i class="bi bi-envelope"></i></button>
+                <div class="topbar-avatar">JD</div>
+            </div>
+        </header>
+
+        <!-- ============ TAB: DASHBOARD ============ -->
+        <div class="tab-panel active" id="tab-dashboard">
+            <div class="welcome-section">
+                <h2>Welcome back, John <span style="font-family:Inter;">✨</span></h2>
+                <p>Here's your project timeline and latest updates.</p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-folder"></i></div>
+                        <div class="stat-card-body">
+                            <h3>3</h3>
+                            <p>Active Projects</p>
+                            <span class="stat-trend up"><i class="bi bi-arrow-up-short"></i> +1 this month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-check-circle"></i></div>
+                        <div class="stat-card-body">
+                            <h3>5</h3>
+                            <p>Completed</p>
+                            <span class="stat-trend up"><i class="bi bi-arrow-up-short"></i> +2 this year</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-chat-dots"></i></div>
+                        <div class="stat-card-body">
+                            <h3>3</h3>
+                            <p>Unread Messages</p>
+                            <span class="stat-trend down"><i class="bi bi-arrow-down-short"></i> -1 today</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:rgba(234,179,8,0.15);color:#eab308;"><i class="bi bi-star"></i></div>
+                        <div class="stat-card-body">
+                            <h3>98%</h3>
+                            <p>Satisfaction</p>
+                            <span class="stat-trend up"><i class="bi bi-arrow-up-short"></i> +2% this quarter</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="dashboard-card mb-4">
+                <div class="card-header-custom">
+                    <h5>Project Timeline</h5>
+                    <a href="#" onclick="switchTab('projects')">View All</a>
+                </div>
+                <div class="timeline-h">
+                    <div class="tl-item">
+                        <div class="tl-dot completed"><i class="bi bi-check fs-6"></i></div>
+                        <div class="tl-label"><strong>Consultation</strong>Completed</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot completed"><i class="bi bi-check fs-6"></i></div>
+                        <div class="tl-label"><strong>Design</strong>Approved</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot active"><i class="bi bi-gear fs-6"></i></div>
+                        <div class="tl-label"><strong>Construction</strong>In Progress</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot pending"><span>4</span></div>
+                        <div class="tl-label"><strong>Inspection</strong>Pending</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot pending"><span>5</span></div>
+                        <div class="tl-label"><strong>Handover</strong>Upcoming</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Showcase -->
+            <div class="project-showcase mb-4">
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg, #1a1a2e, #2a1a0e);">
+                        <span class="showcase-badge"><i class="bi bi-check-circle me-1"></i>75%</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Skyline Villa</h5>
+                        <p>Modern hillside residence with panoramic views</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:75%"></div></div>
+                            <span class="project-mini-status" style="background:rgba(34,197,94,0.12);color:#22c55e;font-size:0.7rem;">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg, #1a2e1a, #0e2a1a);">
+                        <span class="showcase-badge" style="background:rgba(59,130,246,0.2);color:#3b82f6;"><i class="bi bi-clock me-1"></i>45%</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Ocean Tower</h5>
+                        <p>Beachfront luxury apartment complex</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:45%;background:linear-gradient(90deg,#3b82f6,#60a5fa);"></div></div>
+                            <span class="project-mini-status" style="background:rgba(234,179,8,0.12);color:#eab308;font-size:0.7rem;">Review</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg, #1a2e2e, #0a1a1a);">
+                        <span class="showcase-badge" style="background:rgba(34,197,94,0.2);color:#22c55e;"><i class="bi bi-check-circle me-1"></i>90%</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Park Residence</h5>
+                        <p>Eco-friendly community housing project</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:90%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+                            <span class="project-mini-status" style="background:rgba(59,130,246,0.12);color:#3b82f6;font-size:0.7rem;">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg, #2e1a1a, #1a0e0e);">
+                        <span class="showcase-badge" style="background:rgba(239,68,68,0.2);color:#ef4444;"><i class="bi bi-hourglass me-1"></i>30%</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Urban Loft</h5>
+                        <p>City-center loft conversion with industrial style</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:30%;background:linear-gradient(90deg,#eab308,#facc15);"></div></div>
+                            <span class="project-mini-status" style="background:rgba(239,68,68,0.12);color:#ef4444;font-size:0.7rem;">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments + Messages -->
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <h5>Upcoming Appointments</h5>
+                            <a href="#" onclick="switchTab('appointments')">Schedule</a>
+                        </div>
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-calendar"></i></div>
+                                <div class="activity-content">
+                                    <p><strong>Site Review</strong> — Skyline Villa</p>
+                                    <div class="activity-time">Tomorrow, 10:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-people"></i></div>
+                                <div class="activity-content">
+                                    <p><strong>Design Meeting</strong> — Ocean Tower</p>
+                                    <div class="activity-time">Fri, 2:30 PM</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-check-circle"></i></div>
+                                <div class="activity-content">
+                                    <p><strong>Final Walkthrough</strong> — Park Residence</p>
+                                    <div class="activity-time">Next Mon, 9:00 AM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <h5>Recent Messages</h5>
+                            <a href="#" onclick="switchTab('messages')">View All</a>
+                        </div>
+                        <div class="msg-item">
+                            <div class="msg-avatar" style="background:linear-gradient(135deg,#c47a56,#a05a3a);">SM</div>
+                            <div class="msg-info">
+                                <h6>Sarah Mitchell <span>2 hours ago</span></h6>
+                                <p>New design draft uploaded for Skyline Villa — check the latest revisions...</p>
+                            </div>
+                            <div class="msg-unread"></div>
+                        </div>
+                        <div class="msg-item">
+                            <div class="msg-avatar" style="background:linear-gradient(135deg,#3b82f6,#2563eb);">MK</div>
+                            <div class="msg-info">
+                                <h6>Michael Kim <span>1 day ago</span></h6>
+                                <p>Permit application needs your signature before we can proceed with...</p>
+                            </div>
+                            <div class="msg-unread"></div>
+                        </div>
+                        <div class="msg-item">
+                            <div class="msg-avatar" style="background:linear-gradient(135deg,#22c55e,#16a34a);">EP</div>
+                            <div class="msg-info">
+                                <h6>Emily Park <span>3 days ago</span></h6>
+                                <p>Phase 2 budget estimate is ready for your review. Total projected cost...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: PROJECTS ============ -->
+        <div class="tab-panel" id="tab-projects">
+            <div class="welcome-section">
+                <h2>My Projects</h2>
+                <p>Track the progress of all your architectural projects.</p>
+            </div>
+            <div class="project-showcase">
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg,#1a1a2e,#2a1a0e);">
+                        <span class="showcase-badge"><i class="bi bi-building me-1"></i>Active</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Skyline Villa</h5>
+                        <p>Hillside residence · Started Jan 2026</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:75%"></div></div>
+                            <span style="font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:600;">75%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg,#1a2e1a,#0e2a1a);">
+                        <span class="showcase-badge" style="background:rgba(234,179,8,0.2);color:#eab308;"><i class="bi bi-clock me-1"></i>Review</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Ocean Tower</h5>
+                        <p>Beachfront complex · Started Mar 2026</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:45%;background:linear-gradient(90deg,#3b82f6,#60a5fa);"></div></div>
+                            <span style="font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:600;">45%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg,#1a2e2e,#0a1a1a);">
+                        <span class="showcase-badge" style="background:rgba(59,130,246,0.2);color:#3b82f6;"><i class="bi bi-check-circle me-1"></i>Completed</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Park Residence</h5>
+                        <p>Community housing · Started Oct 2025</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:100%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+                            <span style="font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:600;">100%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image:linear-gradient(135deg,#2e1a1a,#1a0e0e);">
+                        <span class="showcase-badge" style="background:rgba(239,68,68,0.2);color:#ef4444;"><i class="bi bi-hourglass me-1"></i>Pending</span>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>Urban Loft</h5>
+                        <p>Loft conversion · Started Jun 2026</p>
+                        <div class="d-flex">
+                            <div class="progress-mini"><div class="progress-mini-fill" style="width:30%;background:linear-gradient(90deg,#eab308,#facc15);"></div></div>
+                            <span style="font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:600;">30%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: MESSAGES ============ -->
+        <div class="tab-panel" id="tab-messages">
+            <div class="welcome-section">
+                <h2>Messages</h2>
+                <p>Communicate with your project team and architects.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="msg-item">
+                    <div class="msg-avatar" style="background:linear-gradient(135deg,#c47a56,#a05a3a);">SM</div>
+                    <div class="msg-info">
+                        <h6>Sarah Mitchell <span>2 hours ago</span></h6>
+                        <p>New design draft uploaded for Skyline Villa — check the latest revisions on the south elevation. I've adjusted the window placements per your feedback...</p>
+                    </div>
+                    <div class="msg-unread"></div>
+                </div>
+                <div class="msg-item">
+                    <div class="msg-avatar" style="background:linear-gradient(135deg,#3b82f6,#2563eb);">MK</div>
+                    <div class="msg-info">
+                        <h6>Michael Kim <span>1 day ago</span></h6>
+                        <p>Permit application needs your signature before we can proceed with the foundation work. Please review the documents in the Documents tab...</p>
+                    </div>
+                    <div class="msg-unread"></div>
+                </div>
+                <div class="msg-item">
+                    <div class="msg-avatar" style="background:linear-gradient(135deg,#22c55e,#16a34a);">EP</div>
+                    <div class="msg-info">
+                        <h6>Emily Park <span>3 days ago</span></h6>
+                        <p>Phase 2 budget estimate is ready for your review. Total projected cost is within the initial estimate. Let me know if you'd like to schedule a walkthrough...</p>
+                    </div>
+                </div>
+                <div class="msg-item">
+                    <div class="msg-avatar" style="background:linear-gradient(135deg,#eab308,#ca8a04);">JR</div>
+                    <div class="msg-info">
+                        <h6>James Rodriguez <span>1 week ago</span></h6>
+                        <p>Interior design mood boards for Ocean Tower common areas are ready. We've prepared 3 different themes — modern, coastal, and minimalist...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: DOCUMENTS ============ -->
+        <div class="tab-panel" id="tab-documents">
+            <div class="welcome-section">
+                <h2>Documents</h2>
+                <p>Access all your project files, contracts, and blueprints.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="project-mini-item">
+                    <div class="project-mini-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-file-earmark-pdf"></i></div>
+                    <div class="project-mini-info">
+                        <h6>Skyline Villa — Structural Report</h6>
+                        <span>PDF · 2.4 MB · Updated 2 days ago</span>
+                    </div>
+                    <a href="404.html" style="color:var(--accent);"><i class="bi bi-download"></i></a>
+                </div>
+                <div class="project-mini-item">
+                    <div class="project-mini-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-file-earmark-image"></i></div>
+                    <div class="project-mini-info">
+                        <h6>Ocean Tower — 3D Renderings</h6>
+                        <span>ZIP · 18 MB · Updated 5 days ago</span>
+                    </div>
+                    <a href="404.html" style="color:var(--accent);"><i class="bi bi-download"></i></a>
+                </div>
+                <div class="project-mini-item">
+                    <div class="project-mini-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-file-earmark-text"></i></div>
+                    <div class="project-mini-info">
+                        <h6>Park Residence — Contract Agreement</h6>
+                        <span>PDF · 1.1 MB · Signed</span>
+                    </div>
+                    <a href="404.html" style="color:var(--accent);"><i class="bi bi-download"></i></a>
+                </div>
+                <div class="project-mini-item">
+                    <div class="project-mini-icon" style="background:rgba(234,179,8,0.15);color:#eab308;"><i class="bi bi-file-earmark-spreadsheet"></i></div>
+                    <div class="project-mini-info">
+                        <h6>Urban Loft — Budget Estimate</h6>
+                        <span>XLSX · 890 KB · Updated 1 week ago</span>
+                    </div>
+                    <a href="404.html" style="color:var(--accent);"><i class="bi bi-download"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: APPOINTMENTS ============ -->
+        <div class="tab-panel" id="tab-appointments">
+            <div class="welcome-section">
+                <h2>Appointments</h2>
+                <p>Manage your site visits, meetings, and walkthroughs.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-header-custom"><h5>Upcoming</h5></div>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background:rgba(196,122,86,0.15);color:var(--accent);"><i class="bi bi-calendar"></i></div>
+                        <div class="activity-content">
+                            <p><strong>Site Review</strong> — Skyline Villa with Sarah Mitchell</p>
+                            <div class="activity-time">Tomorrow · 10:00 AM · On-site</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-people"></i></div>
+                        <div class="activity-content">
+                            <p><strong>Design Review Meeting</strong> — Ocean Tower Phase 2</p>
+                            <div class="activity-time">Fri, Jun 12 · 2:30 PM · Virtual</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-check-circle"></i></div>
+                        <div class="activity-content">
+                            <p><strong>Final Walkthrough</strong> — Park Residence</p>
+                            <div class="activity-time">Mon, Jun 16 · 9:00 AM · On-site</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: BILLING ============ -->
+        <div class="tab-panel" id="tab-billing">
+            <div class="welcome-section">
+                <h2>Billing</h2>
+                <p>View invoices, payment history, and project costs.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-header-custom"><h5>Recent Invoices</h5></div>
+                <div class="invoice-item">
+                    <div class="inv-info">
+                        <h6>Skyline Villa — Phase 3</h6>
+                        <span>Invoice #INV-2026-0421 · Due Jul 15</span>
+                    </div>
+                    <div><span class="project-mini-status" style="background:rgba(234,179,8,0.12);color:#eab308;">Pending</span></div>
+                    <div class="inv-amount">$45,000</div>
+                </div>
+                <div class="invoice-item">
+                    <div class="inv-info">
+                        <h6>Ocean Tower — Design Fee</h6>
+                        <span>Invoice #INV-2026-0389 · Paid</span>
+                    </div>
+                    <div><span class="project-mini-status" style="background:rgba(34,197,94,0.12);color:#22c55e;">Paid</span></div>
+                    <div class="inv-amount">$28,500</div>
+                </div>
+                <div class="invoice-item">
+                    <div class="inv-info">
+                        <h6>Park Residence — Final Payment</h6>
+                        <span>Invoice #INV-2026-0350 · Paid</span>
+                    </div>
+                    <div><span class="project-mini-status" style="background:rgba(34,197,94,0.12);color:#22c55e;">Paid</span></div>
+                    <div class="inv-amount">$62,000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ TAB: SETTINGS ============ -->
+        <div class="tab-panel" id="tab-settings">
+            <div class="welcome-section">
+                <h2>Settings</h2>
+                <p>Manage your account preferences and notifications.</p>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-header-custom"><h5>Profile</h5></div>
+                <div style="display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.04);margin-bottom:20px;">
+                    <div class="sidebar-avatar" style="width:56px;height:56px;font-size:1.3rem;">JD</div>
+                    <div>
+                        <h6 style="color:#fff;font-weight:600;margin:0;">John Doe</h6>
+                        <span style="color:rgba(255,255,255,0.4);font-size:0.85rem;">john.doe@email.com</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;"><i class="bi bi-bell"></i></div>
+                    <div class="activity-content">
+                        <p><strong>Email Notifications</strong></p>
+                        <div class="activity-time">Receive project updates and messages via email</div>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" checked style="cursor:pointer;">
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;"><i class="bi bi-shield-check"></i></div>
+                    <div class="activity-content">
+                        <p><strong>Two-Factor Authentication</strong></p>
+                        <div class="activity-time">Add an extra layer of security to your account</div>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" style="cursor:pointer;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('show');
+    document.querySelector('.sidebar-overlay').classList.toggle('show');
+}
+
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    document.querySelector('.sidebar-nav a[data-tab="' + tabId + '"]').classList.add('active');
+    if (window.innerWidth <= 991) toggleSidebar();
+}
+
+document.querySelectorAll('.sidebar-nav a[data-tab]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        switchTab(this.dataset.tab);
+    });
+});
+
+(function loadUser() {
+    const name = localStorage.getItem('userName') || 'John Doe';
+    const email = localStorage.getItem('userEmail') || 'john.doe@email.com';
+    const initials = localStorage.getItem('userInitials') || 'JD';
+    const firstName = name.split(' ')[0];
+
+    document.querySelectorAll('.sidebar-avatar').forEach(el => { el.textContent = initials; });
+    document.querySelectorAll('.topbar-avatar').forEach(el => { el.textContent = initials; });
+    document.getElementById('sidebarName').textContent = name;
+    document.getElementById('sidebarEmail').textContent = email;
+
+    const welcomeEl = document.querySelector('.welcome-section h2');
+    if (welcomeEl) welcomeEl.innerHTML = welcomeEl.innerHTML.replace(/Welcome back, \w+/g, 'Welcome back, ' + firstName);
+
+    const settingsName = document.querySelector('#tab-settings .sidebar-avatar');
+    if (settingsName) settingsName.textContent = initials;
+    const settingsNameText = document.querySelector('#tab-settings .d-flex h6');
+    if (settingsNameText) settingsNameText.textContent = name;
+    const settingsEmail = document.querySelector('#tab-settings .d-flex span');
+    if (settingsEmail) settingsEmail.textContent = email;
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/image.png" alt="Stackly Architecture" height="40">
+                <img src="images/image.png" alt="Stackly Architecture" height="65">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -44,24 +44,42 @@
             <div class="auth-card">
                 <div class="text-center mb-4">
                     <a href="index.html" class="text-decoration-none">
-                        <img src="images/image.png" alt="Stackly Architecture" height="50">
+                        <img src="images/image.png" alt="Stackly Architecture" height="65">
                     </a>
                     <p class="text-white-50">Create your account and start your journey.</p>
                 </div>
                 <form id="signupForm">
+                    <div class="mb-4">
+                        <label class="form-label text-white-50 fw-semibold">I am a</label>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="roleClient" value="client" checked>
+                                <label class="form-check-label text-white-50" for="roleClient">Client</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="roleArchitect" value="architect">
+                                <label class="form-check-label text-white-50" for="roleArchitect">Architect</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="roleAdmin" value="admin">
+                                <label class="form-check-label text-white-50" for="roleAdmin">Admin</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="signupError" style="display:none;background:rgba(239,68,68,0.12);color:#ef4444;font-size:0.85rem;padding:10px 14px;border-radius:10px;margin-bottom:14px;"></div>
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label text-white-50">First Name</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="John" required>
+                            <input type="text" id="signupFirstName" class="form-control form-control-lg" placeholder="John" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-white-50">Last Name</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Doe" required>
+                            <input type="text" id="signupLastName" class="form-control form-control-lg" placeholder="Doe" required>
                         </div>
                     </div>
                     <div class="mb-3 mt-3">
                         <label class="form-label text-white-50">Email Address</label>
-                        <input type="email" class="form-control form-control-lg" placeholder="you@example.com" required>
+                        <input type="email" id="signupEmail" class="form-control form-control-lg" placeholder="you@example.com" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-white-50">Phone Number</label>
@@ -69,11 +87,17 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-white-50">Password</label>
-                        <input type="password" class="form-control form-control-lg" placeholder="Create a strong password" required>
+                        <div class="password-wrapper">
+                            <input type="password" class="form-control form-control-lg" placeholder="Create a strong password" id="signupPassword" required>
+                            <span class="password-toggle" onclick="togglePassword('signupPassword', this)"><i class="bi bi-eye-slash"></i></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label class="form-label text-white-50">Confirm Password</label>
-                        <input type="password" class="form-control form-control-lg" placeholder="Confirm your password" required>
+                        <div class="password-wrapper">
+                            <input type="password" class="form-control form-control-lg" placeholder="Confirm your password" id="signupConfirmPassword" required>
+                            <span class="password-toggle" onclick="togglePassword('signupConfirmPassword', this)"><i class="bi bi-eye-slash"></i></span>
+                        </div>
                     </div>
                     <div class="form-check mb-4">
                         <input class="form-check-input" type="checkbox" id="terms" required>
@@ -81,14 +105,14 @@
                             I agree to the <a href="404.html" class="text-accent">Terms of Service</a> and <a href="404.html" class="text-accent">Privacy Policy</a>
                         </label>
                     </div>
-                    <div class="text-center mb-3 mt-3">
+                    <button type="submit" class="btn btn-accent w-100 btn-lg rounded-pill mt-3">Create Account</button>
+                    <div class="text-center mb-3 mt-4">
                     <span class="text-white-50 small">or sign up with</span>
                 </div>
                 <div class="d-flex gap-3">
-                    <button class="btn btn-google w-50 rounded-pill" onclick="location.href='404.html'"><i class="bi bi-google me-2"></i> Google</button>
-                    <button class="btn btn-facebook w-50 rounded-pill" onclick="location.href='404.html'"><i class="bi bi-facebook me-2"></i> Facebook</button>
+                    <button type="button" class="btn btn-google w-50 rounded-pill" onclick="location.href='404.html'"><i class="bi bi-google me-2"></i> Google</button>
+                    <button type="button" class="btn btn-facebook w-50 rounded-pill" onclick="location.href='404.html'"><i class="bi bi-facebook me-2"></i> Facebook</button>
                 </div>
-                <button type="submit" class="btn btn-accent w-100 btn-lg rounded-pill mt-3">Create Account</button>
                 </form>
                 <p class="text-center text-white-50 mt-4 mb-0">
                     Already have an account? <a href="signin.html" class="text-accent text-decoration-none fw-bold">Sign In</a>
@@ -97,7 +121,7 @@
         </div>
     </section>
 
-    <section class="section-padding bg-light">
+    <section class="section-padding bg-light overflow-hidden">
         <div class="container">
             <div class="text-center mb-5">
                 <span class="section-tag">What You Get</span>
