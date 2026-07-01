@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/image.png" alt="Stackly Architecture" height="65">
+                <img src="images/image.png" alt="Stackly Architecture" height="50">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
                     </a>
                     <p class="text-white-50">Create your account and start your journey.</p>
                 </div>
-                <form id="signupForm">
+                <form id="signupForm" novalidate>
                     <div class="mb-4">
                         <label class="form-label text-white-50 fw-semibold">I am a</label>
                         <div class="d-flex gap-2 flex-wrap">
@@ -71,15 +71,18 @@
                         <div class="col-md-6">
                             <label class="form-label text-white-50">First Name</label>
                             <input type="text" id="signupFirstName" class="form-control form-control-lg" placeholder="John" required>
+                            <div class="field-error" id="error-signupFirstName"></div>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-white-50">Last Name</label>
                             <input type="text" id="signupLastName" class="form-control form-control-lg" placeholder="Doe" required>
+                            <div class="field-error" id="error-signupLastName"></div>
                         </div>
                     </div>
                     <div class="mb-3 mt-3">
                         <label class="form-label text-white-50">Email Address</label>
                         <input type="email" id="signupEmail" class="form-control form-control-lg" placeholder="you@example.com" required>
+                        <div class="field-error" id="error-signupEmail"></div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-white-50">Phone Number</label>
@@ -91,6 +94,14 @@
                             <input type="password" class="form-control form-control-lg" placeholder="Create a strong password" id="signupPassword" required>
                             <span class="password-toggle" onclick="togglePassword('signupPassword', this)"><i class="bi bi-eye-slash"></i></span>
                         </div>
+                        <div class="field-error" id="error-signupPassword"></div>
+                        <div class="password-requirements" id="passwordRequirements">
+                            <div class="req-item" data-req="length">At least 8 characters</div>
+                            <div class="req-item" data-req="uppercase">One uppercase letter</div>
+                            <div class="req-item" data-req="lowercase">One lowercase letter</div>
+                            <div class="req-item" data-req="number">One number</div>
+                            <div class="req-item" data-req="special">One special character (!@#$%^&*)</div>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label class="form-label text-white-50">Confirm Password</label>
@@ -98,6 +109,7 @@
                             <input type="password" class="form-control form-control-lg" placeholder="Confirm your password" id="signupConfirmPassword" required>
                             <span class="password-toggle" onclick="togglePassword('signupConfirmPassword', this)"><i class="bi bi-eye-slash"></i></span>
                         </div>
+                        <div class="field-error" id="error-signupConfirmPassword"></div>
                     </div>
                     <div class="form-check mb-4">
                         <input class="form-check-input" type="checkbox" id="terms" required>
@@ -114,6 +126,17 @@
                     <button type="button" class="btn btn-facebook w-50 rounded-pill" onclick="location.href='404.html'"><i class="bi bi-facebook me-2"></i> Facebook</button>
                 </div>
                 </form>
+                <div class="signup-success" id="signupSuccess" style="display:none;">
+                    <div class="text-center py-4">
+                        <div class="success-checkmark">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </div>
+                        <h3 class="text-white fw-bold mt-3">Account Created!</h3>
+                        <p class="text-white-50 mb-1">Your account has been created successfully.</p>
+                        <p class="text-white-50 small">Redirecting to sign in...</p>
+                        <div class="spinner-border text-accent mt-3" role="status" style="width:1.5rem;height:1.5rem;"></div>
+                    </div>
+                </div>
                 <p class="text-center text-white-50 mt-4 mb-0">
                     Already have an account? <a href="signin.html" class="text-accent text-decoration-none fw-bold">Sign In</a>
                 </p>

@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    /* ========== ACTIVE NAV LINK ========== */
+    (function activeNav() {
+        const navLinks = document.querySelectorAll('#mainNav .nav-link');
+        if (!navLinks.length) return;
+        const page = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === page) {
+                link.classList.add('active');
+            }
+        });
+    })();
+
     /* ========== HERO PARTICLES ========== */
     (function heroParticles() {
         const container = document.getElementById('heroParticles');
@@ -284,6 +297,28 @@ document.addEventListener('DOMContentLoaded', () => {
     (function contactForm() {
         const form = document.getElementById('contactForm');
         if (!form) return;
+
+        function showToast() {
+            if (document.getElementById('contactToast')) return;
+            const toast = document.createElement('div');
+            toast.id = 'contactToast';
+            toast.className = 'contact-toast';
+            toast.innerHTML =
+                '<div class="contact-toast-icon"><i class="bi bi-check-circle-fill"></i></div>' +
+                '<div class="contact-toast-body">' +
+                    '<div class="contact-toast-title">Message Sent!</div>' +
+                    '<div class="contact-toast-msg">Thank you. We\'ll get back to you shortly.</div>' +
+                '</div>' +
+                '<button class="contact-toast-close" onclick="this.parentElement.remove()"><i class="bi bi-x"></i></button>' +
+                '<div class="contact-toast-progress"></div>';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 4000);
+        }
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
@@ -292,15 +327,11 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             setTimeout(() => {
-                btn.innerHTML = '<i class="bi bi-check-circle me-2"></i> Message Sent!';
-                btn.classList.add('btn-success');
-                setTimeout(() => {
-                    btn.innerHTML = original;
-                    btn.classList.remove('btn-success');
-                    btn.disabled = false;
-                    form.reset();
-                }, 2000);
-            }, 1500);
+                btn.innerHTML = original;
+                btn.disabled = false;
+                form.reset();
+                showToast();
+            }, 1200);
         });
     })();
 
@@ -348,19 +379,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function isValidPassword(v) {
-            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(v);
+            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>_\-]).{8,}$/.test(v);
+        }
+
+        function getPasswordChecks(v) {
+            return {
+                length: v.length >= 8,
+                lowercase: /[a-z]/.test(v),
+                uppercase: /[A-Z]/.test(v),
+                number: /\d/.test(v),
+                special: /[!@#$%^&*(),.?":{}|<>_\-]/.test(v)
+            };
         }
 
         /* ---- Sign In ---- */
         const signinForm = document.getElementById('signinForm');
         if (signinForm) {
             const errBox = document.getElementById('signinError');
+
+            function roleLabel(r) {
+                return r.charAt(0).toUpperCase() + r.slice(1);
+            }
+
             signinForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const btn = signinForm.querySelector('button[type="submit"]');
                 const email = document.getElementById('signinEmail').value.trim().toLowerCase();
                 const password = document.getElementById('signinPassword').value.trim();
-                const role = getSelectedRole(signinForm);
+                const selectedRole = getSelectedRole(signinForm);
 
                 if (!isValidEmail(email)) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
@@ -372,17 +418,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!isValidPassword(password)) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
                     btn.disabled = false;
-                    showError(errBox, 'Password must be 8+ characters with uppercase, lowercase &amp; a number.');
+                    showError(errBox, 'Password must be 8+ characters with uppercase, lowercase, a number &amp; a special character.');
                     return;
                 }
 
                 const users = getStoredUsers();
-                const match = users.find(u => u.email === email && u.password === password);
+                const user = users.find(u => u.email === email);
 
-                if (!match) {
+                if (!user) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
                     btn.disabled = false;
-                    showError(errBox, 'Invalid email or password. Please try again.');
+                    showError(errBox, 'No account found with this email. Please <a href="signup.html" style="color:#ef4444;font-weight:600;">sign up</a> first.');
+                    return;
+                }
+
+                if (user.password !== password) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
+                    btn.disabled = false;
+                    showError(errBox, 'Incorrect password. Please try again.');
+                    return;
+                }
+
+                if (user.role !== selectedRole) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Sign In';
+                    btn.disabled = false;
+                    showError(errBox, 'You registered as <strong>' + roleLabel(user.role) + '</strong>. Please select the correct role above and try again.');
                     return;
                 }
 
@@ -392,11 +452,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                     btn.innerHTML = '<i class="bi bi-check-circle me-2"></i> Signed In!';
-                    saveCurrentSession(match.name, match.email, role);
+                    saveCurrentSession(user.name, user.email, user.role);
                     setTimeout(() => {
-                        window.location.href = roleUrls[role] || roleUrls.client;
+                        window.location.href = roleUrls[user.role] || roleUrls.client;
                     }, 1000);
                 }, 1500);
+            });
+        }
+
+        /* ---- Field-level error helpers ---- */
+        function showFieldError(fieldId, msg) {
+            const el = document.getElementById('error-' + fieldId);
+            const input = document.getElementById(fieldId);
+            if (el) { el.textContent = msg; el.style.display = 'block'; }
+            if (input) input.classList.add('is-invalid');
+        }
+
+        function clearFieldErrors() {
+            document.querySelectorAll('.field-error').forEach(el => {
+                el.textContent = ''; el.style.display = 'none';
+            });
+            document.querySelectorAll('.is-invalid').forEach(el => {
+                el.classList.remove('is-invalid');
             });
         }
 
@@ -406,6 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const errBox = document.getElementById('signupError');
             signupForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+                clearFieldErrors();
                 const btn = signupForm.querySelector('button[type="submit"]');
                 const firstName = document.getElementById('signupFirstName').value.trim();
                 const lastName = document.getElementById('signupLastName').value.trim();
@@ -414,34 +492,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 const confirm = document.getElementById('signupConfirmPassword').value.trim();
                 const role = getSelectedRole(signupForm);
 
-                if (!isValidName(firstName) || !isValidName(lastName)) {
+                if (!isValidName(firstName)) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
-                    showError(errBox, 'Name fields must contain only letters and spaces (no numbers).');
-                    return;
+                    showFieldError('signupFirstName', 'Only letters and spaces allowed.');
                 }
+                if (!isValidName(lastName)) {
+                    btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
+                    showFieldError('signupLastName', 'Only letters and spaces allowed.');
+                }
+                if (!isValidName(firstName) || !isValidName(lastName)) return;
 
                 if (!isValidEmail(email)) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
-                    showError(errBox, 'Email must end with <strong>.com</strong>.');
+                    showFieldError('signupEmail', 'Email must end with <strong>.com</strong>.');
                     return;
                 }
 
                 if (!isValidPassword(password)) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
-                    showError(errBox, 'Password must be 8+ characters with uppercase, lowercase &amp; a number.');
+                    showFieldError('signupPassword', 'Must be 8+ characters with uppercase, lowercase, a number &amp; a special character.');
                     return;
                 }
 
                 if (password !== confirm) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
-                    showError(errBox, 'Passwords do not match.');
+                    showFieldError('signupConfirmPassword', 'Passwords do not match.');
                     return;
                 }
 
                 const users = getStoredUsers();
                 if (users.some(u => u.email === email)) {
                     btn.innerHTML = '<i class="bi bi-x-circle me-2"></i> Create Account';
-                    showError(errBox, 'An account with this email already exists.');
+                    showFieldError('signupEmail', 'An account with this email already exists.');
                     return;
                 }
 
@@ -452,14 +534,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 errBox.style.display = 'none';
 
                 setTimeout(() => {
-                    btn.innerHTML = '<i class="bi bi-check-circle me-2"></i> Account Created!';
                     users.push({ name, email, password, role });
                     saveStoredUsers(users);
+                    signupForm.style.display = 'none';
+                    document.getElementById('signupSuccess').style.display = 'block';
                     setTimeout(() => {
                         window.location.href = 'signin.html';
-                    }, 1000);
+                    }, 2000);
                 }, 1500);
             });
+
+            /* ---- Live password requirements ---- */
+            const pwInput = document.getElementById('signupPassword');
+            const reqContainer = document.getElementById('passwordRequirements');
+            if (pwInput && reqContainer) {
+                pwInput.addEventListener('input', () => {
+                    const checks = getPasswordChecks(pwInput.value);
+                    reqContainer.querySelectorAll('.req-item').forEach(item => {
+                        const req = item.dataset.req;
+                        item.classList.toggle('valid', checks[req]);
+                    });
+                });
+            }
         }
     })();
 
