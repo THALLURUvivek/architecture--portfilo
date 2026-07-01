@@ -95,26 +95,30 @@
                     <form id="contactForm" class="contact-form" novalidate>
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Name" required>
+                                <input type="text" id="contactName" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
+                                <div class="invalid-feedback">Please enter your name.</div>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control form-control-lg" placeholder="Your Email" required>
+                                <input type="email" id="contactEmail" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
                             </div>
                             <div class="col-md-6">
-                                <input type="tel" class="form-control form-control-lg" placeholder="Phone Number">
+                                <input type="tel" id="contactPhone" name="phone" class="form-control form-control-lg" placeholder="Phone Number">
                             </div>
                             <div class="col-md-6">
-                                <select class="form-select form-select-lg">
+                                <select id="contactProject" name="project" class="form-select form-select-lg" required>
                                     <option value="">Project Type</option>
-                                    <option>Residential</option>
-                                    <option>Commercial</option>
-                                    <option>Interior</option>
-                                    <option>Landscape</option>
-                                    <option>Consulting</option>
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Interior">Interior</option>
+                                    <option value="Landscape">Landscape</option>
+                                    <option value="Consulting">Consulting</option>
                                 </select>
+                                <div class="invalid-feedback">Please select a project type.</div>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control form-control-lg" rows="5" placeholder="Tell us about your project..." required></textarea>
+                                <textarea id="contactMessage" name="message" class="form-control form-control-lg" rows="5" placeholder="Tell us about your project..." required></textarea>
+                                <div class="invalid-feedback">Please enter your message.</div>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-accent btn-lg rounded-pill px-5">

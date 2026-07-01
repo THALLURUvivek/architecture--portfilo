@@ -2557,6 +2557,68 @@ body {
     }
 }
 
+@media (max-width: 400px) {
+    .hero-content-glass {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 3px;
+        padding: 6px 12px;
+    }
+    .hero-desc {
+        font-size: 0.85rem;
+        max-width: 100%;
+    }
+    .hero-content .btn {
+        font-size: 0.82rem;
+        padding: 10px 20px !important;
+    }
+    .hero-scroll-indicator {
+        display: none;
+    }
+    .hero-slider-controls {
+        bottom: 24px;
+    }
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+    }
+    .hero-section {
+        min-height: 100vh;
+        height: 100vh;
+    }
+}
+
+@media (max-width: 340px) {
+    .hero-content-glass {
+        padding: 20px 14px;
+        border-radius: 12px;
+    }
+    .hero-title {
+        font-size: 1.2rem;
+    }
+    .hero-subtitle {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+        padding: 4px 10px;
+    }
+    .hero-desc {
+        font-size: 0.78rem;
+    }
+    .hero-content .btn {
+        font-size: 0.75rem;
+        padding: 8px 14px !important;
+    }
+    .hero-content {
+        padding: 0 10px;
+    }
+}
+
 /* ========== DASHBOARD ========== */
 .dashboard-section {
     padding-top: 100px;
@@ -4849,6 +4911,479 @@ body {
         width: 32px;
         height: 32px;
         font-size: 0.72rem;
+    }
+}
+
+/* ========== RESPONSIVE: VERY SMALL MOBILE (400px) ========== */
+@media (max-width: 400px) {
+    .dashboard-main {
+        padding: 0 10px 24px;
+    }
+    .dashboard-topbar {
+        padding: 10px 0;
+        margin-bottom: 18px;
+    }
+    .dashboard-topbar .topbar-left {
+        gap: 10px;
+    }
+    .search-box {
+        width: 70px;
+        gap: 6px;
+        padding: 0 10px;
+    }
+    .search-box:focus-within {
+        width: 140px;
+    }
+    .search-box input {
+        font-size: 0.75rem;
+        padding: 6px 0;
+    }
+    .topbar-right {
+        gap: 4px;
+    }
+    .btn-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.78rem;
+        border-radius: 10px;
+    }
+    .btn-icon .dot {
+        top: 5px;
+        right: 5px;
+        width: 5px;
+        height: 5px;
+        border-width: 1.5px;
+    }
+    .topbar-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 0.68rem;
+        border-radius: 10px;
+    }
+
+    .dashboard-card {
+        padding: 14px;
+        border-radius: 12px;
+    }
+    .card-header-custom {
+        margin-bottom: 12px;
+    }
+    .card-header-custom h5 {
+        font-size: 0.88rem;
+    }
+    .card-header-custom a {
+        font-size: 0.72rem;
+    }
+
+    .stat-card {
+        padding: 14px;
+        gap: 10px;
+        border-radius: 12px;
+    }
+    .stat-card-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+    .stat-card-body h3 {
+        font-size: 1.1rem;
+    }
+    .stat-card-body p {
+        font-size: 0.75rem;
+    }
+    .stat-trend {
+        font-size: 0.65rem;
+    }
+
+    .welcome-section {
+        margin-bottom: 18px;
+    }
+    .welcome-section h2 {
+        font-size: 1.05rem;
+    }
+    .welcome-section p {
+        font-size: 0.78rem;
+    }
+    .welcome-section::after {
+        width: 28px;
+        height: 2px;
+        bottom: -8px;
+    }
+
+    .showcase-card {
+        border-radius: 12px;
+    }
+    .showcase-card .showcase-img {
+        height: 80px;
+    }
+    .showcase-card .showcase-img .showcase-badge {
+        top: 8px;
+        right: 8px;
+        font-size: 0.62rem;
+        padding: 2px 10px;
+    }
+    .showcase-card .showcase-body {
+        padding: 12px 14px 16px;
+    }
+    .showcase-card .showcase-body h5 {
+        font-size: 0.85rem;
+    }
+    .showcase-card .showcase-body p {
+        font-size: 0.72rem;
+        margin-bottom: 10px;
+    }
+
+    .activity-item {
+        padding: 10px 0;
+        gap: 10px;
+    }
+    .activity-item .activity-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.72rem;
+        border-radius: 8px;
+    }
+    .activity-item .activity-content p {
+        font-size: 0.78rem;
+    }
+    .activity-item .activity-time {
+        font-size: 0.65rem;
+    }
+
+    .msg-item {
+        padding: 10px 0;
+        gap: 10px;
+    }
+    .msg-item:hover {
+        margin: 0 -6px;
+        padding: 10px 6px;
+    }
+    .msg-item .msg-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.68rem;
+        border-radius: 10px;
+    }
+    .msg-item .msg-info h6 {
+        font-size: 0.8rem;
+    }
+    .msg-item .msg-info p {
+        font-size: 0.72rem;
+    }
+    .msg-item .msg-unread {
+        width: 5px;
+        height: 5px;
+    }
+
+    .project-mini-item {
+        padding: 8px 0;
+        gap: 10px;
+    }
+    .project-mini-item .project-mini-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.78rem;
+        border-radius: 10px;
+    }
+    .project-mini-item .project-mini-info h6 {
+        font-size: 0.8rem;
+    }
+    .project-mini-item .project-mini-info span {
+        font-size: 0.68rem;
+    }
+    .project-mini-item .project-mini-status {
+        font-size: 0.58rem;
+        padding: 2px 8px;
+    }
+
+    .invoice-item {
+        padding: 10px 10px;
+        margin: 0 -10px;
+        gap: 4px;
+    }
+    .invoice-item .inv-info h6 {
+        font-size: 0.8rem;
+    }
+    .invoice-item .inv-info span {
+        font-size: 0.68rem;
+    }
+    .invoice-item .inv-amount {
+        font-size: 0.8rem;
+    }
+    .invoice-item .inv-status {
+        font-size: 0.58rem;
+        padding: 2px 8px;
+    }
+
+    .user-row {
+        padding: 8px 0;
+        gap: 8px;
+    }
+    .user-row .user-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 0.68rem;
+        border-radius: 10px;
+    }
+    .user-row .user-info h6 {
+        font-size: 0.8rem;
+    }
+    .user-row .user-info span {
+        font-size: 0.68rem;
+    }
+    .user-row .user-role-badge {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+    }
+
+    .chart-item {
+        gap: 6px;
+    }
+    .chart-item .chart-label {
+        font-size: 0.72rem;
+        width: 60px;
+    }
+    .chart-item .chart-percent {
+        font-size: 0.72rem;
+    }
+
+    .metric-item {
+        padding: 12px;
+        gap: 10px;
+    }
+    .metric-item .metric-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+    .metric-item .metric-info h6 {
+        font-size: 0.72rem;
+    }
+    .metric-item .metric-info .metric-value {
+        font-size: 1rem;
+    }
+
+    .quick-action-btn {
+        padding: 14px;
+    }
+    .quick-action-btn i {
+        font-size: 1.2rem;
+    }
+    .quick-action-btn span {
+        font-size: 0.72rem;
+    }
+
+    .timeline-h {
+        padding: 10px 0;
+    }
+    .timeline-h .tl-item {
+        min-width: 56px;
+    }
+    .timeline-h .tl-item .tl-dot {
+        width: 20px;
+        height: 20px;
+        font-size: 0.55rem;
+        margin-bottom: 6px;
+    }
+    .timeline-h .tl-item::after {
+        top: 10px;
+    }
+    .timeline-h .tl-item .tl-label {
+        font-size: 0.65rem;
+    }
+
+    .kanban-column {
+        padding: 10px;
+    }
+    .kanban-card {
+        padding: 10px;
+    }
+
+    .empty-state {
+        padding: 24px 12px;
+    }
+    .empty-state i {
+        font-size: 1.8rem;
+    }
+    .empty-state h6 {
+        font-size: 0.82rem;
+    }
+
+    .dashboard-sidebar {
+        width: 220px;
+    }
+    .dashboard-sidebar .sidebar-header {
+        padding: 14px 16px;
+    }
+    .dashboard-sidebar .sidebar-user {
+        padding: 14px 16px;
+    }
+    .sidebar-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 0.82rem;
+    }
+    .sidebar-user-info h6 {
+        font-size: 0.8rem;
+    }
+    .dashboard-sidebar .sidebar-nav {
+        padding: 6px 10px;
+    }
+    .dashboard-sidebar .sidebar-nav a {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+    .sidebar-footer {
+        padding: 12px 16px;
+    }
+
+    .calendar-mini .cal-header h6 {
+        font-size: 0.8rem;
+    }
+    .calendar-mini .cal-grid .cal-day {
+        font-size: 0.65rem;
+        padding: 3px 0;
+    }
+    .calendar-mini .cal-grid .cal-day-name {
+        font-size: 0.6rem;
+    }
+}
+
+/* ========== RESPONSIVE: EXTRA SMALL MOBILE (340px) ========== */
+@media (max-width: 340px) {
+    .dashboard-main {
+        padding: 0 6px 20px;
+    }
+    .dashboard-topbar {
+        padding: 8px 0;
+        margin-bottom: 16px;
+    }
+    .search-box {
+        width: 44px;
+        padding: 0 6px;
+    }
+    .search-box i {
+        font-size: 0.8rem;
+    }
+    .search-box input {
+        display: none;
+    }
+    .search-box:focus-within {
+        width: 120px;
+    }
+    .search-box:focus-within input {
+        display: block;
+    }
+    .topbar-right {
+        gap: 3px;
+    }
+    .btn-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 0.7rem;
+    }
+    .btn-icon .dot {
+        top: 4px;
+        right: 4px;
+        width: 4px;
+        height: 4px;
+    }
+    .topbar-avatar {
+        width: 26px;
+        height: 26px;
+        font-size: 0.6rem;
+    }
+
+    .dashboard-card {
+        padding: 12px;
+        border-radius: 10px;
+    }
+    .card-header-custom h5 {
+        font-size: 0.82rem;
+    }
+
+    .stat-card {
+        padding: 12px;
+        gap: 8px;
+    }
+    .stat-card-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    .stat-card-body h3 {
+        font-size: 1rem;
+    }
+    .stat-card-body p {
+        font-size: 0.7rem;
+    }
+    .stat-trend {
+        font-size: 0.6rem;
+    }
+
+    .welcome-section h2 {
+        font-size: 0.95rem;
+    }
+    .welcome-section p {
+        font-size: 0.72rem;
+    }
+
+    .showcase-card .showcase-img {
+        height: 70px;
+    }
+    .showcase-card .showcase-body {
+        padding: 10px 12px 14px;
+    }
+    .showcase-card .showcase-body h5 {
+        font-size: 0.8rem;
+    }
+    .showcase-card .showcase-body p {
+        font-size: 0.68rem;
+    }
+
+    .activity-item .activity-content p {
+        font-size: 0.72rem;
+    }
+
+    .msg-item .msg-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 0.62rem;
+    }
+    .msg-item .msg-info h6 {
+        font-size: 0.75rem;
+    }
+
+    .timeline-h .tl-item {
+        min-width: 48px;
+    }
+    .timeline-h .tl-item .tl-dot {
+        width: 18px;
+        height: 18px;
+        font-size: 0.5rem;
+        margin-bottom: 4px;
+    }
+    .timeline-h .tl-item::after {
+        top: 9px;
+    }
+
+    .dashboard-sidebar {
+        width: 200px;
+    }
+    .dashboard-sidebar .sidebar-nav a {
+        font-size: 0.75rem;
+        padding: 7px 8px;
+        gap: 8px;
+    }
+    .dashboard-sidebar .sidebar-nav a i {
+        font-size: 1rem;
+        width: 18px;
+    }
+    .sidebar-user-info .badge-role {
+        font-size: 0.58rem;
+        padding: 1px 8px;
     }
 }
 

@@ -298,6 +298,77 @@ document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('contactForm');
         if (!form) return;
 
+        const fields = {
+            name: form.querySelector('#contactName'),
+            email: form.querySelector('#contactEmail'),
+            phone: form.querySelector('#contactPhone'),
+            project: form.querySelector('#contactProject'),
+            message: form.querySelector('#contactMessage')
+        };
+
+        function setError(input, show) {
+            if (!input) return;
+            if (show) {
+                input.classList.add('is-invalid');
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        }
+
+        function validateField(input) {
+            if (!input) return true;
+            if (input.hasAttribute('required') && !input.value.trim()) {
+                setError(input, true);
+                return false;
+            }
+            if (input.type === 'email' && input.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(input.value.trim())) {
+                    setError(input, true);
+                    return false;
+                }
+            }
+            if (input.type === 'tel' && input.value.trim()) {
+                const phoneRegex = /^[\d\s\-\+\(\)]{7,20}$/;
+                if (!phoneRegex.test(input.value.trim())) {
+                    setError(input, true);
+                    return false;
+                }
+            }
+            if (input.tagName === 'SELECT' && input.hasAttribute('required') && !input.value) {
+                setError(input, true);
+                return false;
+            }
+            setError(input, false);
+            return true;
+        }
+
+        function validateForm() {
+            let valid = true;
+            for (const key of ['name', 'email', 'project', 'message']) {
+                if (!validateField(fields[key])) valid = false;
+            }
+            if (fields.phone && fields.phone.value.trim()) {
+                validateField(fields.phone);
+            }
+            return valid;
+        }
+
+        function clearError(e) {
+            const input = e.target;
+            if (input.classList.contains('is-invalid')) {
+                validateField(input);
+            }
+        }
+
+        Object.values(fields).forEach(f => {
+            if (f) {
+                f.addEventListener('input', clearError);
+                f.addEventListener('change', clearError);
+                f.addEventListener('blur', () => validateField(f));
+            }
+        });
+
         function showToast() {
             if (document.getElementById('contactToast')) return;
             const toast = document.createElement('div');
@@ -321,6 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (!validateForm()) return;
+
             const btn = form.querySelector('button[type="submit"]');
             const original = btn.innerHTML;
             btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Sending...';
@@ -330,6 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerHTML = original;
                 btn.disabled = false;
                 form.reset();
+                Object.values(fields).forEach(f => { if (f) setError(f, false); });
                 showToast();
             }, 1200);
         });
